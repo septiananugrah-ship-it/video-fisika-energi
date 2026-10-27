@@ -140,8 +140,8 @@ export const Spring: React.FC = () => {
               x = 0,20 m
             </Label>
           </g>
-          <Crate x={xL + BW / 2} y={FLOOR} w={BW} h={BH} label="2 kg" color={C.kin} opacity={1 - ramp(xL, 880, 990, (x) => x)} />
-          <g opacity={moving * (1 - halfGhost) * (1 - ramp(xL, 860, 960, (x) => x))}>
+          <Crate x={xL + BW / 2} y={FLOOR} w={BW} h={BH} label="2 kg" color={C.kin} opacity={tau > Math.PI / OMEGA ? 1 - ramp(xL, 880, 990, (x) => x) : 1} />
+          <g opacity={moving * (1 - halfGhost) * (tau > Math.PI / OMEGA ? 1 - ramp(xL, 860, 960, (x) => x) : 1)}>
             <Arrow x1={xL + BW / 2} y1={FLOOR - BH - 30} x2={xL + BW / 2 + vel * 30} y2={FLOOR - BH - 30} color="kin" width={6} />
             <Label x={xL + BW / 2 + vel * 15} y={FLOOR - BH - 62} size={24} font="mono" color={C.kin} weight={600}>
               {`${fmt(Math.abs(vel), 1)} m/s`}

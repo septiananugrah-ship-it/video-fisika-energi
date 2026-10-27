@@ -359,11 +359,14 @@ export const Reaction: React.FC = () => {
           </Label>
         </g>
       </Stage>
-      <Formula x={1530} y={300} p={dHcard} accent={C.heat} size={58} caption="produk lebih rendah: eksoterm">
+      <Formula x={1470} y={300} p={dHcard} accent={C.heat} size={58} caption="produk lebih rendah: eksoterm">
         Δ<V>H</V> = <V>H</V>
         <Sub>produk</Sub> − <V>H</V>
         <Sub>reaktan</Sub> {'< 0'}
       </Formula>
+      <Note x={1500} y={440} p={win(t, cue(0) + 1.2, cue(2) + 0.2, 0.7, 0.5)} color={C.spr} size={28}>
+        tinggi lintasan = energi potensial molekul
+      </Note>
       <Note x={1530} y={790} p={win(t, cue(6) + 2.6, cue(7) - 0.1, 0.6, 0.5)} color={C.work} size={26}>
         katalis: bukit lebih rendah, Δ<i>H</i> tetap sama
       </Note>

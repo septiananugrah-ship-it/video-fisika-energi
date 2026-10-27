@@ -75,7 +75,7 @@ export const Gravity: React.FC = () => {
         </g>
         <g opacity={top}>
           <line x1={400} y1={GROUND - 20 * PXM} x2={980} y2={GROUND - 20 * PXM} stroke={C.pot} strokeWidth={2.5} strokeDasharray="12 9" />
-          <Label x={680} y={GROUND - 20 * PXM - 4} size={28} color={C.pot} anchor="start" weight={600}>
+          <Label x={680} y={GROUND - 20 * PXM - 30} size={28} color={C.pot} anchor="start" weight={600}>
             v = 0 sesaat
           </Label>
         </g>
@@ -94,7 +94,7 @@ export const Gravity: React.FC = () => {
         </g>
         <Ball x={BX} y={by} r={26} opacity={ballIn} />
         {/* panah kecepatan bola */}
-        <g opacity={ballIn * (1 - aim) * Math.min(1, Math.abs(v) / 3) * ramp(t, cue(3), cue(3) + 0.4)}>
+        <g opacity={ballIn * (1 - aim) * Math.min(1, Math.abs(v) / 3) * ramp(t, cue(3), cue(3) + 0.4) * Math.min(1, y / 1.5 + (v > 0 ? 1 : 0))}>
           <Arrow x1={BX + 50} y1={by} x2={BX + 50} y2={by - v * 6} color="kin" width={5} />
         </g>
         <g opacity={aim * ballIn}>

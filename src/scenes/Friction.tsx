@@ -69,7 +69,7 @@ export const Friction: React.FC = () => {
   const forces = win(t, cue(7) + 0.2, cue(8) + 0.4, 0.6, 0.5);
   const n6 = win(t, cue(6) + 0.3, cue(7), 0.6, 0.5);
   const n7 = win(t, cue(7) + 0.3, cue(8) + 0.2, 0.6, 0.5);
-  const n8 = win(t, cue(8) + 0.6, cue(10), 0.6, 0.5);
+  const n8 = win(t, cueEnd(8) - 0.4, cue(10), 0.6, 0.5);
   const f9 = ramp(t, cue(9) + 0.3, cue(9) + 1.1);
   const n10 = ramp(t, cue(10) + 0.3, cue(10) + 1.0);
   const hDim = ramp(t, cue(6), cue(6) + 0.6);
@@ -152,7 +152,7 @@ export const Friction: React.FC = () => {
               h = 2,5 m
             </Label>
           </g>
-          <Label x={(top.x + bottom.x) / 2 - 120} y={(top.y + bottom.y) / 2 - 30} size={24} font="mono" color={C.muted} opacity={ramp(t, cue(5) + 1, cue(5) + 1.6)}>
+          <Label x={(top.x + bottom.x) / 2 - 150} y={(top.y + bottom.y) / 2 + 60} size={24} font="mono" color={C.muted} opacity={ramp(t, cue(5) + 1, cue(5) + 1.6)}>
             s = 5 m · μk = 0,2
           </Label>
           <Crate x={blk.x} y={blk.y} w={92} h={70} label="2 kg" color={C.kin} rot={30} />

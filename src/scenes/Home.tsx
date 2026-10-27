@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {EASE_IN_OUT, cyc, mix, ramp, rand, win} from '../anim';
 import {Person, fmt} from '../components/physics';
-import {Card, Formula, Frac, Glow, Label, Note, Stage, Sub, Sup, TSub, V} from '../components/primitives';
+import {Card, Formula, Frac, Glow, Label, Note, Stage, Sup, V} from '../components/primitives';
 import {useScene} from '../SceneContext';
 import {C, FONT} from '../theme';
 
@@ -60,8 +60,8 @@ export const Home: React.FC = () => {
   const kalCard = ramp(t, cue(5) + 2.4, cue(5) + 3.2);
 
   // pita Sankey (efisiensi otot)
-  const SX0 = 1090;
-  const SX1 = 1640;
+  const SX0 = 1190;
+  const SX1 = 1600;
   const top = 400;
   const H = 330;
   const usefulH = H * 0.25;
@@ -74,7 +74,7 @@ export const Home: React.FC = () => {
         {/* ================= PANEL A ================= */}
         <g opacity={panelA}>
           {/* meter kWh */}
-          <g transform="translate(430 450)">
+          <g transform="translate(430 548) scale(0.85)">
             <rect x={-200} y={-150} width={400} height={270} rx={22} fill="#101a3a" stroke={C.muted} strokeWidth={3} />
             <Label x={0} y={-118} size={22} color={C.muted} weight={600} spacing={3}>
               METER LISTRIK
@@ -87,11 +87,10 @@ export const Home: React.FC = () => {
               kWh
             </text>
             <ellipse cx={0} cy={50} rx={90} ry={18} fill="#1a2550" stroke={C.muted} strokeWidth={2} />
-            <line x1={90 * Math.cos((discAng * Math.PI) / 180)} y1={50} x2={90 * Math.cos((discAng * Math.PI) / 180)} y2={50 + 18 * Math.sin((discAng * Math.PI) / 180) * 0.0 + 0} stroke={C.gold} strokeWidth={6} />
             <circle cx={90 * Math.cos((discAng * Math.PI) / 180)} cy={50 + 18 * Math.sin((discAng * Math.PI) / 180)} r={7} fill={C.heat} />
           </g>
           {/* kabel ke setrika */}
-          <path d="M430,570 Q430,640 520,660 Q600,676 610,700" fill="none" stroke={C.muted} strokeWidth={4} />
+          <path d="M430,650 Q430,690 520,700 Q600,708 610,716" fill="none" stroke={C.muted} strokeWidth={4} />
           <Iron x={700} y={790} heat={on * (0.6 + 0.4 * Math.sin(t * 3) ** 2)} />
           <Label x={700} y={830} size={24} color={C.ink} weight={600}>
             setrika 1000 W
@@ -153,7 +152,7 @@ export const Home: React.FC = () => {
             </Label>
           </g>
           <Glow x={px} y={py - 70} r={150} color="heat" opacity={0.6 * sweat} />
-          <Person x={px} y={py - 6 * Math.abs(Math.sin(stepPhase))} phase={stepPhase} scale={0.62} color={C.ink} arm={s > 0 && s < 1 ? undefined : 0} />
+          <Person x={px} y={py - 6 * Math.abs(Math.sin(stepPhase))} phase={stepPhase} scale={0.62} color={C.ink} />
           {Array.from({length: 5}, (_, i) => {
             const ph = (((t * 0.8 + i / 5) % 1) + 1) % 1;
             return <path key={i} d={`M${px + (rand(i) - 0.5) * 50},${py - 112 + ph * 60} q4,-10 0,-14 q-4,4 0,14 Z`} fill={C.cyan} opacity={cyc(ph) * sweat} />;
@@ -162,7 +161,11 @@ export const Home: React.FC = () => {
             {`t = ${fmt(runT, 1)} s`}
           </Label>
           <Label x={180} y={278} size={26} font="mono" color={C.pot} anchor="start" opacity={ramp(t, cue(3) + 1.0, cue(3) + 1.8)}>
-            {`Ug naik: ${fmt(ug)} J`}
+            <tspan fontStyle="italic">U</tspan>
+            <tspan baselineShift="sub" fontSize="0.65em">
+              g
+            </tspan>
+            {` naik: ${fmt(ug)} J`}
           </Label>
           <Label x={180} y={318} size={22} color={C.muted} anchor="start" opacity={ramp(t, cue(3) + 1.0, cue(3) + 1.8)}>
             orang 70 kg
@@ -202,7 +205,7 @@ export const Home: React.FC = () => {
       <Formula x={1400} y={420} p={eCard} accent={C.gold} size={58} caption="1 kWh = 3,6 × 10⁶ J  →  2 kWh ≈ 7,2 × 10⁶ J">
         <V>E</V> = <V>P t</V> = 1 kW × 2 jam = 2 kWh
       </Formula>
-      <Formula x={540} y={250} p={hCard * panelA} accent={C.pot} size={50} caption="massa 70 kg, g = 10 m/s²">
+      <Formula x={560} y={240} p={hCard * panelA} accent={C.pot} size={56} caption="massa 70 kg, g = 10 m/s²">
         <V>h</V> ={' '}
         <Frac
           n={<V>E</V>}
@@ -238,7 +241,7 @@ export const Home: React.FC = () => {
         ={' '}
         <Frac n="2100 J" d="3 s" /> = 700 W
       </Formula>
-      <Note x={1360} y={800} p={sweat * flow} color={C.heat} size={26}>
+      <Note x={1420} y={815} p={sweat * flow} color={C.heat} size={26}>
         panas berlebih dibuang lewat keringat
       </Note>
       <Card x={1420} y={360} opacity={food * panelB} accent={C.gold} style={{padding: '20px 34px', width: 520, whiteSpace: 'normal'}}>
@@ -252,10 +255,6 @@ export const Home: React.FC = () => {
       <Formula x={1420} y={640} p={kalCard * panelB} accent={C.gold} size={58} caption="kalori pada label makanan = kilokalori">
         1 kkal ≈ 4184 J
       </Formula>
-      <div style={{display: 'none'}}>
-        <Sub>.</Sub>
-        <TSub>.</TSub>
-      </div>
     </AbsoluteFill>
   );
 };
