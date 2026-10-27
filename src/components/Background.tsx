@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, interpolateColors, useCurrentFrame, useVideoConfig} from 'remotion';
 import {rand} from '../anim';
-import {C, H, MOOD_TINT, W} from '../theme';
+import {C, FONT, H, MOOD_TINT, W} from '../theme';
 import {TIMELINE} from '../timeline.ts';
 
 const tintAt = (t: number) => {
@@ -39,6 +39,17 @@ const DUST = Array.from({length: 46}, (_, i) => ({
   c: [C.kin, C.pot, C.cyan, C.gold][i % 4],
 }));
 
+// Rumus "hantu" yang melayang pelan di latar (sangat samar, hanya tekstur hidup).
+const GHOSTS = ['E = K + U', 'W = F·s·cos θ', '½ m v²', 'm g h', '½ k x²', 'P = W / t', 'ΔK = W', 'F = −k x'];
+const GHOST = GHOSTS.map((txt, i) => ({
+  txt,
+  y: 120 + ((i * 131) % 840),
+  size: 60 + (i % 3) * 26,
+  speed: 9 + (i % 4) * 4,
+  off: rand(i * 7.7) * (W + 700),
+  c: [C.kin, C.pot, C.spr, C.work, C.gold, C.cyan][i % 6],
+}));
+
 /** Latar malam biru tinta + kisi cetak biru yang bergeser pelan + debu energi berkelip. */
 export const Background: React.FC = () => {
   const frame = useCurrentFrame();
@@ -54,6 +65,36 @@ export const Background: React.FC = () => {
           <path d={MINOR} stroke={C.grid} strokeOpacity={0.45} strokeWidth={1} fill="none" />
           <path d={MAJOR} stroke={C.grid} strokeOpacity={0.95} strokeWidth={1.5} fill="none" />
         </g>
+        {/* cincin orbit samar yang berputar pelan di pojok */}
+        <g transform={`translate(1780 960) rotate(${t * 3})`} opacity={0.5}>
+          <ellipse rx={340} ry={140} fill="none" stroke={C.pot} strokeOpacity={0.14} strokeWidth={2.5} strokeDasharray="3 16" strokeLinecap="round" />
+          <circle cx={340 * Math.cos(t * 0.35)} cy={140 * Math.sin(t * 0.35)} r={6} fill={C.kin} opacity={0.5} />
+        </g>
+        <g transform={`translate(120 150) rotate(${-t * 4})`} opacity={0.45}>
+          <ellipse rx={250} ry={96} fill="none" stroke={C.cyan} strokeOpacity={0.13} strokeWidth={2.5} strokeDasharray="3 16" strokeLinecap="round" />
+          <circle cx={-250 * Math.cos(t * 0.45)} cy={-96 * Math.sin(t * 0.45)} r={5} fill={C.cyan} opacity={0.5} />
+        </g>
+        {/* gelombang energi tipis yang berjalan di bawah & atas */}
+        {[0, 1].map((k) => {
+          const base = k ? 1010 : 196;
+          const pts = Array.from({length: 49}, (_, i) => {
+            const x = (i / 48) * W;
+            const y = base + 16 * Math.sin(x * 0.006 + t * (k ? 0.7 : -0.55) + k * 2) * Math.sin(x * 0.0017 + t * 0.2);
+            return `${i ? 'L' : 'M'}${x.toFixed(0)},${y.toFixed(1)}`;
+          }).join(' ');
+          return <path key={k} d={pts} fill="none" stroke={k ? C.kin : C.cyan} strokeOpacity={0.07} strokeWidth={2} />;
+        })}
+        {/* rumus hantu */}
+        {GHOST.map((g, i) => {
+          const span = W + 700;
+          const x = ((((g.off + t * g.speed) % span) + span) % span) - 350;
+          const edge = Math.min(1, (x + 350) / 300, (W + 350 - x) / 300);
+          return (
+            <text key={i} x={x} y={g.y + 10 * Math.sin(t * 0.3 + i)} fontFamily={FONT.serif} fontStyle="italic" fontSize={g.size} fill={g.c} opacity={0.045 * Math.max(0, edge)}>
+              {g.txt}
+            </text>
+          );
+        })}
         {DUST.map((d, i) => {
           const y = (((d.y - t * d.s) % H) + H) % H;
           const tw = 0.35 + 0.35 * Math.sin(t * 0.9 + d.ph);

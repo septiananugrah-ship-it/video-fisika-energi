@@ -1,6 +1,14 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, FONT, H, HUES, type Hue, W} from '../theme';
+
+/** Detik global film (untuk gerak hiasan yang terus berjalan). */
+const useT = () => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  return f / fps;
+};
+const cycOp = (ph: number) => Math.min(1, ph * 6) * (1 - ph);
 
 export const hue = (h: Hue | string) => (h in C ? (C as Record<string, string>)[h] : h);
 
@@ -50,8 +58,13 @@ export const Stage: React.FC<{children: React.ReactNode; style?: React.CSSProper
 );
 
 /** Pendar lembut (gradien radial, aman untuk tema gelap). */
-export const Glow: React.FC<{x: number; y: number; r: number; color?: Hue; opacity?: number}> = ({x, y, r, color = 'cyan', opacity = 1}) =>
-  opacity <= 0.001 ? null : <circle cx={x} cy={y} r={r} fill={`url(#soft-${color})`} opacity={Math.min(1, opacity)} />;
+export const Glow: React.FC<{x: number; y: number; r: number; color?: Hue; opacity?: number; still?: boolean}> = ({x, y, r, color = 'cyan', opacity = 1, still}) => {
+  const t = useT();
+  if (opacity <= 0.001) return null;
+  // bernapas pelan: ukuran & terang berdenyut halus (fase dari posisi agar tiap pendar beda irama)
+  const b = still ? 0 : Math.sin(t * 1.25 + x * 0.013 + y * 0.007);
+  return <circle cx={x} cy={y} r={r * (1 + 0.05 * b)} fill={`url(#soft-${color})`} opacity={Math.min(1, opacity * (0.9 + 0.1 * b))} />;
+};
 
 /** Panah lurus berwarna (gaya, kecepatan, perpindahan). Tanpa filter agar garis datar/tegak tidak hilang. */
 export const Arrow: React.FC<{
@@ -64,8 +77,16 @@ export const Arrow: React.FC<{
   opacity?: number;
   dash?: string;
   both?: boolean;
-}> = ({x1, y1, x2, y2, color = 'force', width = 6, opacity = 1, dash, both}) => {
-  if (Math.hypot(x2 - x1, y2 - y1) < 3 || opacity <= 0.001) return null;
+  /** denyut energi yang merambat sepanjang panah (bawaan: aktif untuk panah ≥ 70 px) */
+  pulse?: boolean;
+}> = ({x1, y1, x2, y2, color = 'force', width = 6, opacity = 1, dash, both, pulse}) => {
+  const t = useT();
+  const len = Math.hypot(x2 - x1, y2 - y1);
+  if (len < 3 || opacity <= 0.001) return null;
+  const doPulse = (pulse ?? len >= 70) && !dash;
+  const ph = (((t * 0.9 + (x1 * 0.0031 + y1 * 0.0017)) % 1) + 1) % 1;
+  const px = x1 + (x2 - x1) * (0.06 + 0.8 * ph);
+  const py = y1 + (y2 - y1) * (0.06 + 0.8 * ph);
   return (
     <g opacity={opacity}>
       <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={hue(color)} strokeOpacity={0.22} strokeWidth={width * 3} strokeLinecap="round" />
@@ -81,6 +102,12 @@ export const Arrow: React.FC<{
         markerEnd={`url(#arrow-${color})`}
         markerStart={both ? `url(#arrow-${color})` : undefined}
       />
+      {doPulse ? (
+        <g opacity={cycOp(ph)}>
+          <circle cx={px} cy={py} r={width * 2.2} fill={`url(#soft-${color})`} />
+          <circle cx={px} cy={py} r={width * 0.55} fill="#fff" opacity={0.85} />
+        </g>
+      ) : null}
     </g>
   );
 };
@@ -166,8 +193,52 @@ export const Card: React.FC<{
         ...style,
       }}
     >
+      {plain ? null : <CardShine accent={a} opacity={opacity} />}
       {children}
     </div>
+  );
+};
+
+/** Kilau kartu: sapuan cahaya saat muncul, garis rambut atas yang berkilau pelan, dan kilau sesekali. */
+const CardShine: React.FC<{accent: string; opacity: number}> = ({accent, opacity}) => {
+  const t = useT();
+  const ph = (t * 0.11 + accent.length * 0.13) % 1; // kilau berkala (≈ 9 dtk sekali)
+  const sweep = -40 + opacity * 150;
+  const idle = -40 + ph * 6 * 150; // hanya terlihat di awal siklus
+  return (
+    <>
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          borderRadius: 16,
+          pointerEvents: 'none',
+          background: `linear-gradient(105deg, transparent ${sweep - 16}%, rgba(255,245,220,0.13) ${sweep}%, transparent ${sweep + 16}%)`,
+        }}
+      />
+      {ph < 1 / 6 ? (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 16,
+            pointerEvents: 'none',
+            background: `linear-gradient(105deg, transparent ${idle - 14}%, rgba(255,245,220,0.07) ${idle}%, transparent ${idle + 14}%)`,
+          }}
+        />
+      ) : null}
+      <div
+        style={{
+          position: 'absolute',
+          left: 22,
+          right: 22,
+          top: -1,
+          height: 1.5,
+          background: `linear-gradient(90deg, transparent, ${accent} ${20 + 60 * (0.5 + 0.5 * Math.sin(t * 0.8))}%, transparent)`,
+          opacity: 0.9,
+        }}
+      />
+    </>
   );
 };
 
@@ -246,9 +317,12 @@ export const DrawPath: React.FC<{d: string; p: number; stroke: string; width?: n
 };
 
 /** Partikel bercahaya (inti putih + halo warna). */
-export const Spark: React.FC<{x: number; y: number; r?: number; color?: Hue; opacity?: number}> = ({x, y, r = 8, color = 'gold', opacity = 1}) =>
+export const Spark: React.FC<{x: number; y: number; r?: number; color?: Hue; opacity?: number; trail?: [number, number][]}> = ({x, y, r = 8, color = 'gold', opacity = 1, trail}) =>
   opacity <= 0.001 ? null : (
     <g opacity={opacity}>
+      {trail?.map(([tx, ty], i) => (
+        <circle key={i} cx={tx} cy={ty} r={r * (1 - i / (trail.length + 1)) * 0.8} fill={hue(color)} opacity={0.45 * (1 - i / trail.length)} />
+      ))}
       <circle cx={x} cy={y} r={r * 3.2} fill={`url(#soft-${color})`} />
       <circle cx={x} cy={y} r={r} fill={hue(color)} />
       <circle cx={x} cy={y} r={r * 0.45} fill="#fff" />
@@ -336,3 +410,154 @@ export const Note: React.FC<{x: number; y: number; p: number; color?: string; ch
       <div style={{fontSize: size, fontFamily: FONT.head, fontWeight: 500, lineHeight: 1.35}}>{children}</div>
     </Card>
   );
+
+/* ------------------------------------------------------------------ */
+/* Hiasan gerak (selalu hidup): riak, debu cahaya, aliran partikel      */
+/* ------------------------------------------------------------------ */
+
+/** Riak cahaya: cincin yang mengembang & memudar (p: 0..1), untuk tumbukan, energi dilepas, momen penting. */
+export const Ripple: React.FC<{x: number; y: number; p: number; r?: number; color?: Hue; rings?: number; width?: number}> = ({x, y, p, r = 160, color = 'gold', rings = 3, width = 3}) => {
+  if (p <= 0 || p >= 1) return null;
+  return (
+    <g>
+      {Array.from({length: rings}, (_, i) => {
+        const q = p * 1.35 - i * 0.17;
+        if (q <= 0 || q >= 1) return null;
+        return <circle key={i} cx={x} cy={y} r={r * q} fill="none" stroke={hue(color)} strokeWidth={width * (1 - q) + 0.5} opacity={(1 - q) * 0.85} />;
+      })}
+      <circle cx={x} cy={y} r={r * 0.4} fill={`url(#soft-${color})`} opacity={Math.sin(Math.PI * p)} />
+    </g>
+  );
+};
+
+/** Debu cahaya berkelip mengitari objek fokus (deterministik, berputar pelan). */
+export const Motes: React.FC<{x: number; y: number; rx: number; ry: number; n?: number; color?: Hue; opacity?: number; seed?: number}> = ({
+  x,
+  y,
+  rx,
+  ry,
+  n = 30,
+  color = 'gold',
+  opacity = 1,
+  seed = 0,
+}) => {
+  const t = useT();
+  if (opacity <= 0.001) return null;
+  const rnd = (k: number) => {
+    const v = Math.sin(k * 12.9898 + seed * 78.233) * 43758.5453;
+    return v - Math.floor(v);
+  };
+  return (
+    <g opacity={opacity}>
+      {Array.from({length: n}, (_, i) => {
+        const a = rnd(i) * Math.PI * 2 + t * (0.05 + rnd(i + 3) * 0.12) * (rnd(i + 9) > 0.5 ? 1 : -1);
+        const d = 0.35 + 0.65 * Math.sqrt(rnd(i + 5));
+        const tw = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(t * (1.2 + rnd(i + 7) * 2) + i));
+        return (
+          <circle
+            key={i}
+            cx={x + Math.cos(a) * rx * d}
+            cy={y + Math.sin(a) * ry * d - 12 * Math.sin(t * (0.4 + rnd(i + 2) * 0.6) + i)}
+            r={0.8 + rnd(i + 1) * 2.2}
+            fill={hue(color)}
+            opacity={tw * 0.7}
+          />
+        );
+      })}
+    </g>
+  );
+};
+
+/** Titik pada polyline pada fraksi panjang u (0..1). */
+export const pointAlong = (pts: [number, number][], u: number): [number, number] => {
+  const seg: number[] = [];
+  let total = 0;
+  for (let i = 1; i < pts.length; i++) {
+    const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+    seg.push(d);
+    total += d;
+  }
+  let target = Math.max(0, Math.min(1, u)) * total;
+  for (let i = 0; i < seg.length; i++) {
+    if (target <= seg[i] || i === seg.length - 1) {
+      const k = seg[i] ? target / seg[i] : 0;
+      return [pts[i][0] + (pts[i + 1][0] - pts[i][0]) * k, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * k];
+    }
+    target -= seg[i];
+  }
+  return pts[pts.length - 1];
+};
+
+/**
+ * Aliran energi: butir cahaya yang terus mengalir sepanjang lintasan (polyline) dari sumber ke tujuan.
+ * Pakai untuk menunjukkan energi berpindah (benda → batang, gesekan → panas, PLTA → kabel).
+ */
+export const Stream: React.FC<{pts: [number, number][]; color?: Hue; n?: number; speed?: number; r?: number; opacity?: number; seed?: number; jitter?: number}> = ({
+  pts,
+  color = 'gold',
+  n = 10,
+  speed = 0.5,
+  r = 5,
+  opacity = 1,
+  seed = 0,
+  jitter = 6,
+}) => {
+  const t = useT();
+  if (opacity <= 0.001 || pts.length < 2) return null;
+  return (
+    <g opacity={opacity}>
+      {Array.from({length: n}, (_, i) => {
+        const ph = (((t * speed + i / n + seed * 0.37) % 1) + 1) % 1;
+        const [x, y] = pointAlong(pts, ph);
+        const j = jitter * Math.sin(t * 3 + i * 2.1 + seed);
+        return (
+          <g key={i} opacity={cycOp(ph)}>
+            <circle cx={x} cy={y + j} r={r * 2.6} fill={`url(#soft-${color})`} />
+            <circle cx={x} cy={y + j} r={r * 0.7} fill={hue(color)} />
+            <circle cx={x} cy={y + j} r={r * 0.32} fill="#fff" opacity={0.8} />
+          </g>
+        );
+      })}
+    </g>
+  );
+};
+
+/** Bintang kilau kecil (empat ujung) yang muncul-hilang di sekitar titik — untuk hasil akhir/angka penting. */
+export const Twinkles: React.FC<{x: number; y: number; rx: number; ry: number; n?: number; color?: Hue; opacity?: number; seed?: number}> = ({
+  x,
+  y,
+  rx,
+  ry,
+  n = 6,
+  color = 'gold',
+  opacity = 1,
+  seed = 1,
+}) => {
+  const t = useT();
+  if (opacity <= 0.001) return null;
+  const rnd = (k: number) => {
+    const v = Math.sin(k * 91.17 + seed * 13.7) * 43758.5453;
+    return v - Math.floor(v);
+  };
+  return (
+    <g opacity={opacity}>
+      {Array.from({length: n}, (_, i) => {
+        // posisi berganti hanya saat siklus kilau berganti (saat tak terlihat) → tanpa loncatan
+        const raw = t * (0.35 + rnd(i) * 0.3) + rnd(i + 4);
+        const cyc = Math.floor(raw);
+        const ph = raw - cyc;
+        const cx = x + (rnd(i * 7 + cyc * 3.1 + 11) - 0.5) * 2 * rx;
+        const cy = y + (rnd(i * 5 + cyc * 2.3 + 23) - 0.5) * 2 * ry;
+        const s = 10 * Math.sin(Math.PI * ph);
+        return (
+          <path
+            key={i}
+            d={`M${cx},${cy - s} Q${cx},${cy} ${cx + s},${cy} Q${cx},${cy} ${cx},${cy + s} Q${cx},${cy} ${cx - s},${cy} Q${cx},${cy} ${cx},${cy - s} Z`}
+            fill={hue(color)}
+            opacity={Math.sin(Math.PI * ph) * 0.9}
+          />
+        );
+      })}
+    </g>
+  );
+};

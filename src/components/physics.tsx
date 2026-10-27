@@ -1,6 +1,7 @@
 // Komponen fisika bersama: benda, pegas, lantai, batang energi, sumbu grafik.
 // Semua dalam koordinat SVG 1920×1080 (dipakai di dalam <Stage>).
 import React from 'react';
+import {useCurrentFrame, useVideoConfig} from 'remotion';
 import {mix, rand} from '../anim';
 import {C, FONT, type Hue} from '../theme';
 import {Label, TSub, hue} from './primitives';
@@ -209,6 +210,9 @@ export const EnergyBars: React.FC<{
   total?: boolean;
   title?: string;
 }> = ({x, y, bars, max, height = 300, barW = 80, gap = 34, opacity = 1, unit = 'J', showValues = true, total = true, title}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const t = frame / fps;
   if (opacity <= 0.001) return null;
   const width = bars.length * barW + (bars.length - 1) * gap;
   const sum = bars.reduce((s, b) => s + b.value, 0);
@@ -229,8 +233,7 @@ export const EnergyBars: React.FC<{
         return (
           <g key={b.key}>
             <rect x={bx} y={y - height} width={barW} height={height} rx={8} fill={hue(b.color)} opacity={0.07} />
-            <rect x={bx} y={y - hgt} width={barW} height={hgt} rx={8} fill={hue(b.color)} />
-            <rect x={bx + 8} y={y - hgt + 6} width={10} height={Math.max(0, hgt - 12)} rx={5} fill="#fff" opacity={0.18} />
+            <LiquidBar x={bx} y={y} w={barW} h={hgt} color={hue(b.color)} t={t} seed={i * 3.7 + x * 0.01} />
             {showValues ? (
               <Label x={bx + barW / 2} y={y - hgt - 20} size={22} font="mono" color={hue(b.color)} weight={600}>
                 {Math.round(b.value)}
@@ -244,7 +247,7 @@ export const EnergyBars: React.FC<{
       })}
       {total ? (
         <g>
-          <rect x={totX} y={y - (sum / max) * height} width={tot} height={(sum / max) * height} rx={8} fill="none" stroke={C.ink} strokeWidth={3} strokeDasharray="10 7" />
+          <rect x={totX} y={y - (sum / max) * height} width={tot} height={(sum / max) * height} rx={8} fill="none" stroke={C.ink} strokeWidth={3} strokeDasharray="10 7" strokeDashoffset={-t * 22} />
           {(() => {
             let acc = 0;
             return bars.map((b) => {
@@ -269,6 +272,34 @@ export const EnergyBars: React.FC<{
           {`satuan: ${unit}`}
         </Label>
       ) : null}
+    </g>
+  );
+};
+
+/** Isi batang energi seperti cairan: permukaan bergelombang, kilau tepi, gelembung naik. */
+const LiquidBar: React.FC<{x: number; y: number; w: number; h: number; color: string; t: number; seed: number}> = ({x, y, w, h, color, t, seed}) => {
+  if (h <= 0.5) return null;
+  const amp = Math.min(4, h * 0.12);
+  const top = y - h;
+  const n = 8;
+  const wave = Array.from({length: n + 1}, (_, k) => {
+    const xx = x + (w * k) / n;
+    const yy = top + amp * Math.sin(t * 3.2 + k * 0.9 + seed) * Math.sin(t * 1.1 + seed);
+    return `${k === 0 ? 'M' : 'L'}${xx.toFixed(1)},${yy.toFixed(1)}`;
+  }).join(' ');
+  const d = `${wave} L${x + w},${y - 8} Q${x + w},${y} ${x + w - 8},${y} L${x + 8},${y} Q${x},${y} ${x},${y - 8} Z`;
+  const bubbles = h > 30 ? 4 : 0;
+  return (
+    <g>
+      <path d={d} fill={color} />
+      <path d={wave} fill="none" stroke="#fff" strokeOpacity={0.35} strokeWidth={2} />
+      <rect x={x + 8} y={top + 6} width={9} height={Math.max(0, h - 14)} rx={4.5} fill="#fff" opacity={0.16} />
+      {Array.from({length: bubbles}, (_, k) => {
+        const ph = (((t * (0.22 + 0.07 * k) + k * 0.31 + seed) % 1) + 1) % 1;
+        const by = y - 6 - ph * (h - 14);
+        const bx = x + w * (0.35 + 0.4 * ((k * 0.618 + seed) % 1)) + 3 * Math.sin(t * 2 + k);
+        return <circle key={k} cx={bx} cy={by} r={2 + (k % 2)} fill="#fff" opacity={0.35 * Math.min(1, ph * 6) * (1 - ph)} />;
+      })}
     </g>
   );
 };
