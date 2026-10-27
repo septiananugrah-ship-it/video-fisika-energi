@@ -103,7 +103,7 @@ export const Hydro: React.FC = () => {
         <Label x={380} y={430} size={30} color={C.ink} weight={600}>
           waduk
         </Label>
-        <Label x={380} y={472} size={24} color={C.pot} opacity={resGlow} weight={600}>
+        <Label x={330} y={540} size={24} color={C.ink} opacity={resGlow} weight={600}>
           tabungan <tspan fontStyle="italic">U</tspan>
           <TSub>g</TSub> raksasa
         </Label>
@@ -130,7 +130,7 @@ export const Hydro: React.FC = () => {
           ))}
           <circle r={7} fill={C.cyan} />
         </g>
-        <rect x={1030} y={694} width={58} height={44} rx={8} fill="#0c1430" stroke={C.gold} strokeWidth={3} />
+        <rect x={1030} y={694} width={58} height={44} rx={8} fill="#0c1430" stroke={C.cyan} strokeWidth={3} />
         <line x1={TURB.x} y1={TURB.y} x2={1059} y2={716} stroke={C.muted} strokeWidth={5} />
         <Label x={1012} y={830} size={22} color={C.muted}>
           turbin + generator
@@ -139,11 +139,11 @@ export const Hydro: React.FC = () => {
         {[1170, 1270].map((x) => (
           <path key={x} d={`M${x - 22},800 L${x},560 L${x + 22},800 M${x - 30},590 H${x + 30}`} fill="none" stroke={C.muted} strokeWidth={3} />
         ))}
-        <path d="M1088,700 Q1130,640 1170,590 Q1220,610 1270,590 L1300,585" fill="none" stroke={C.gold} strokeOpacity={0.7} strokeWidth={2.5} />
+        <path d="M1088,700 Q1130,640 1170,590 Q1220,610 1270,590 L1300,585" fill="none" stroke={C.cyan} strokeOpacity={0.7} strokeWidth={2.5} />
         {sparks.map((s, i) => (
-          <circle key={i} cx={s.x} cy={s.y} r={5} fill={C.gold} opacity={s.o} />
+          <circle key={i} cx={s.x} cy={s.y} r={5} fill={C.cyan} opacity={s.o} />
         ))}
-        <Label x={1220} y={530} size={22} color={C.gold} opacity={ramp(t, cue(1) + 3.5, cue(1) + 4.5)}>
+        <Label x={1220} y={530} size={22} color={C.cyan} opacity={ramp(t, cue(1) + 3.5, cue(1) + 4.5)}>
           ke jaringan
         </Label>
         {/* buangan */}
@@ -196,7 +196,7 @@ export const Hydro: React.FC = () => {
                 </>
               ),
               value: Elec,
-              color: 'gold',
+              color: 'cyan',
             },
             {key: 'Th', label: ELabel.Th, value: Eth, color: 'heat'},
           ]}

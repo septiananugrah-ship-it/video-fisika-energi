@@ -99,7 +99,7 @@ export const Heat: React.FC = () => {
           </g>
           <line x1={1026} y1={316} x2={1026} y2={yW - 60} stroke={C.ink} strokeWidth={3} />
           <Crate x={1026} y={yW + 40} w={90} h={100} label="m" color={C.pot} />
-          <Label x={960} y={yW - 10} size={24} anchor="end" color={C.pot} opacity={joule}>
+          <Label x={1026} y={yW + 72} size={22} anchor="middle" color={C.pot} opacity={joule}>
             beban turun
           </Label>
           <Label x={630} y={862} size={24} color={C.muted} opacity={joule}>

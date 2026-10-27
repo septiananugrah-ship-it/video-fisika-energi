@@ -79,7 +79,7 @@ export const Bond: React.FC = () => {
   const rCl = ATOM.Cl.r * 2.3 * s;
   const springOp = 1 - ramp(r, 2.6, 3.2);
 
-  const molIn = ramp(t, cue(1) - 0.4, cue(1) + 0.6);
+  const molIn = ramp(t, 0.3, 1.3);
   const repel = close;
   const attract = far;
   const lenTag = win(t, wordOf(2, 'nyaman'), cue(3) - 0.6, 0.6, 0.5);

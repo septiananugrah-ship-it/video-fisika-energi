@@ -75,7 +75,7 @@ export const Power: React.FC = () => {
   const phaseB = ramp(t, cue(5) - 0.2, cue(5) + 0.8);
   const lift = ramp(t, cue(5) + 1.2, cue(5) + 7.2, EASE_IN_OUT);
   const simT = 15 * ramp(t, cue(5) + 1.2, cue(5) + 7.2, (x) => x);
-  const crateY = mix(830, 410, lift);
+  const crateY = mix(830, 450, lift);
   const drumRot = lift * 1400;
   const calc = win(t, cue(6) + 0.2, cue(8) - 0.2, 0.6, 0.5);
   const eta = win(t, cue(8) + 0.1, cue(9) - 0.2, 0.6, 0.5);
@@ -175,10 +175,10 @@ export const Power: React.FC = () => {
           <Crate x={582} y={crateY} w={130} h={100} label="200 kg" color={C.pot} />
           {/* tinggi 12 m */}
           <g opacity={ramp(t, cue(5) + 0.6, cue(5) + 1.4)}>
-            <line x1={720} y1={830} x2={720} y2={410} stroke={C.pot} strokeWidth={3} strokeDasharray="8 8" />
-            <line x1={705} y1={410} x2={735} y2={410} stroke={C.pot} strokeWidth={3} />
+            <line x1={720} y1={830} x2={720} y2={450} stroke={C.pot} strokeWidth={3} strokeDasharray="8 8" />
+            <line x1={705} y1={450} x2={735} y2={450} stroke={C.pot} strokeWidth={3} />
             <line x1={705} y1={830} x2={735} y2={830} stroke={C.pot} strokeWidth={3} />
-            <Label x={745} y={610} size={30} color={C.pot} anchor="start" weight={600}>
+            <Label x={745} y={640} size={30} color={C.pot} anchor="start" weight={600}>
               12 m
             </Label>
           </g>

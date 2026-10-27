@@ -142,8 +142,8 @@ export const Brakes: React.FC = () => {
             </Label>
           </g>
           <g opacity={hazard}>
-            <path d="M1790,240 L1840,330 L1740,330 Z" fill={C.heat} opacity={0.9} />
-            <text x={1790} y={318} textAnchor="middle" fontFamily={FONT.head} fontWeight={700} fontSize={48} fill="#fff">
+            <path d="M1230,240 L1280,330 L1180,330 Z" fill={C.heat} opacity={0.9} />
+            <text x={1230} y={318} textAnchor="middle" fontFamily={FONT.head} fontWeight={700} fontSize={48} fill="#fff">
               !
             </text>
           </g>
