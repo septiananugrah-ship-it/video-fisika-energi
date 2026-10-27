@@ -187,7 +187,7 @@ export const Gravity: React.FC = () => {
           </g>
           <Ripple x={BX} y={GROUND - 20 * PXM - 26} p={ramp(t, cue(4) + 0.1, cue(4) + 1.6)} r={140} color="pot" />
           {/* panah kecepatan bola */}
-          <g opacity={ballIn * (1 - aim) * Math.min(1, Math.abs(v) / 3) * ramp(t, cue(3), cue(3) + 0.4) * Math.min(1, y / 1.5 + (v > 0 ? 1 : 0))}>
+          <g opacity={ballIn * (1 - aim) * (1 - win(t, cue(7) + 0.2, cue(7) + 2.5, 0.5, 0.5)) * Math.min(1, Math.abs(v) / 3) * ramp(t, cue(3), cue(3) + 0.4) * Math.min(1, y / 1.5 + (v > 0 ? 1 : 0))}>
             <Arrow x1={BX + 50} y1={by} x2={BX + 50} y2={by - v * 6} color={v >= 0 ? 'kin' : 'cyan'} width={5} />
           </g>
           <g opacity={aim * ballIn}>

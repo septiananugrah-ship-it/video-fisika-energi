@@ -279,6 +279,12 @@ export const Area: React.FC = () => {
             />
             <path d={CURVE} fill="none" stroke={C.force} strokeOpacity={0.25} strokeWidth={14} strokeDasharray="2000" strokeDashoffset={2000 * (1 - run)} pathLength={2000} />
             <path d={CURVE} fill="none" stroke={C.force} strokeWidth={5} strokeDasharray="2000" strokeDashoffset={2000 * (1 - run)} pathLength={2000} />
+            {/* denyut energi yang terus merambat di sepanjang kurva */}
+            {(() => {
+              const ph = (((t - cue(1)) / 4.2) % 1 + 1) % 1;
+              const xx = 6 * ph;
+              return <Spark x={px(A, xx)} y={py(A, F(xx))} r={6} color="force" opacity={cyc(ph) * 1.2 * win(t, cue(1) + 2.8, cue(6) - 0.4, 0.8, 0.6) * (1 - acc)} />;
+            })()}
             {/* ujung pena yang menggambar kurva */}
             <Spark x={penX} y={penY} r={7} color="force" opacity={sp1 > 0.001 ? Math.min(1, sp1 * 4) : 0} trail={penTrail} />
             {/* muka gelombang saat pita menyala */}

@@ -173,7 +173,7 @@ export const Kinetic: React.FC = () => {
 
         {/* ===== troli ===== */}
         <g opacity={trolley}>
-          <Motes x={640} y={TRACK - 80} rx={520} ry={150} n={22} color="kin" opacity={0.35} seed={2} />
+          <Motes x={640} y={TRACK - 80} rx={520} ry={150} n={18} color="gold" opacity={0.25} seed={2} />
           {/* lantai yang bergulir mengikuti kamera */}
           <rect x={GX1} y={TRACK} width={GX2 - GX1} height={70} fill="url(#ground)" />
           <g clipPath="url(#kin-clip)">
@@ -254,8 +254,8 @@ export const Kinetic: React.FC = () => {
           </Label>
 
           {/* aliran energi: usaha F·s masuk, menjadi energi gerak */}
-          <Stream pts={arc([(hx1 + hx2) / 2, TRACK - 72], [wBarX, topBar - 10], 120)} color="work" n={10} speed={0.5} opacity={fArrow * bars} seed={1} />
-          <Stream pts={arc([tx, TRACK - 120], [kBarX, topBar - 10], 150)} color="kin" n={10} speed={0.5} opacity={fArrow * bars} seed={2} />
+          <Stream pts={arc([(hx1 + hx2) / 2, TRACK - 72], [wBarX, topBar - 10], 120, 24)} color="work" n={18} speed={0.35} r={6} opacity={fArrow * bars} seed={1} />
+          <Stream pts={arc([tx, TRACK - 120], [kBarX, topBar - 10], 150, 24)} color="kin" n={18} speed={0.35} r={6} opacity={fArrow * bars} seed={2} />
           <Stream pts={arc([wBarX + 24, topBar - 6], [kBarX - 24, topBar - 6], 30, 12)} color="work" n={5} speed={0.6} opacity={bars * win(t, cue(6) + 0.3, cue(7), 0.5, 0.5)} seed={3} />
           <Glow x={kBarX} y={BY - BH / 2} r={130} color="kin" opacity={kLabel} />
           <Ripple x={kBarX} y={topBar} p={ramp(t, cue(5) + 0.2, cue(5) + 1.5)} r={110} color="kin" />

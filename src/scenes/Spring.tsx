@@ -19,7 +19,7 @@ const K_SPR = 200;
 const OMEGA = 10;
 const V0 = 4;
 const AX: Axes = {x0: 1130, y0: 720, w: 560, h: 380, xmax: 0.5, ymax: 100};
-const AU: Axes = {x0: 300, y0: 840, w: 470, h: 200, xmax: 0.45, ymax: 18};
+const AU: Axes = {x0: 300, y0: 840, w: 470, h: 185, xmax: 0.45, ymax: 18};
 const EB_X = 1270;
 const EB_Y = 760;
 const EB_H = 260;
@@ -90,7 +90,7 @@ const GlowCoil: React.FC<{xb: number; y: number; e: number; t: number}> = ({xb, 
     <g>
       <Glow x={mid} y={y} r={70 + len * 0.45} color="spr" opacity={Math.min(1, e) * (0.85 + 0.15 * Math.sin(t * 3))} />
       <Coil xa={WALL} xb={xb} y={y} coils={12} amp={24} color={col} width={5 + 1.5 * Math.min(1, e)} />
-      <Motes x={mid} y={y} rx={Math.max(20, len / 2)} ry={30} n={12} color="spr" opacity={0.7 * Math.min(1, e)} seed={11} />
+      <Motes x={mid} y={y} rx={Math.max(20, len / 2)} ry={30} n={12} color="spr" opacity={0.25 + 0.55 * Math.min(1, e)} seed={11} />
       {/* kilau yang merambat pelan sepanjang pegas */}
       <Stream pts={[[WALL + 24, y], [xb - 24, y]]} color="spr" n={2} speed={0.3} r={4} jitter={0} opacity={0.55} seed={4} />
     </g>
@@ -281,7 +281,7 @@ export const Spring: React.FC = () => {
             <Ripple x={XN - 0.4 * PXM} y={springY} p={ramp(t, tB, tB + 1.2)} r={130} color="kin" />
             <g opacity={forceMax}>
               <Arrow x1={xL - 4} y1={springY + 70} x2={xL + 180} y2={springY + 70} color="force" width={7} />
-              <Label x={xL + 90} y={springY + 110} size={28} font="mono" color={C.force} weight={600}>
+              <Label x={xL + 90} y={springY + 102} size={28} font="mono" color={C.force} weight={600}>
                 kx = 80 N
               </Label>
             </g>
