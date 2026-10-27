@@ -80,7 +80,7 @@ const Disc: React.FC<{x: number; y: number; r: number; angle: number; heat: numb
 export const Brakes: React.FC = () => {
   const {t, cue, cueEnd} = useScene();
   const road = win(t, 0, cue(5) - 0.3, 0.9, 0.8);
-  const t0 = cue(1) + 1.5;
+  const t0 = cue(2) - 0.4;
   const tau = Math.max(0, (t - t0) * SLOW);
   const formula = win(t, cue(0) + 0.6, cue(4) - 0.2, 0.7, 0.5);
   const ratio = win(t, cue(4) + 0.3, cue(5) - 0.3, 0.7, 0.5);
