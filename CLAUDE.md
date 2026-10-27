@@ -8,6 +8,8 @@
 - **Claude tidak menjalankan workflow GitHub Actions.** Setelah merge ke `main`, berhenti dan minta pengguna menekan *Run workflow* sendiri; beri link & isian.
 - Narasi: menyusul (pengguna memilih ElevenLabs suara klon; Edge TTS gratis tersedia sebagai cadangan di workflow). Selalu sediakan versi tanpa narasi.
 
+- **Poles animasi (v2):** semua adegan harus terus bergerak — lihat `naskah/POLISH.md`. Komponen hiasan bersama: `Stream` (aliran energi), `Ripple`, `Motes`, `Twinkles`, `Spark trail`; `Glow` bernapas, `Arrow` berdenyut, `Card` berkilau, `EnergyBars` cair — otomatis.
+
 ## Aturan konten & tata letak
 
 - Rumus utama ≥ 56 px (`Formula`), satu kartu per momen; zona subtitle (bawah 180 px) selalu bebas; margin ≥ 80 px. Komponen HTML (`Formula`, `Card`, `Note`, `Badge`) di luar `<Stage>`.

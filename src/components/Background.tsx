@@ -90,7 +90,7 @@ export const Background: React.FC = () => {
           const x = ((((g.off + t * g.speed) % span) + span) % span) - 350;
           const edge = Math.min(1, (x + 350) / 300, (W + 350 - x) / 300);
           return (
-            <text key={i} x={x} y={g.y + 10 * Math.sin(t * 0.3 + i)} fontFamily={FONT.serif} fontStyle="italic" fontSize={g.size} fill={g.c} opacity={0.045 * Math.max(0, edge)}>
+            <text key={i} x={x} y={g.y + 10 * Math.sin(t * 0.3 + i)} fontFamily={FONT.serif} fontStyle="italic" fontSize={g.size} fill={g.c} opacity={0.033 * Math.max(0, edge)}>
               {g.txt}
             </text>
           );
