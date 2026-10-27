@@ -1,6 +1,7 @@
 // Voice-over per baris narasi.
 //
 //   ELEVENLABS_API_KEY=xxx npm run voiceover            → buat MP3 per baris via ElevenLabs, lalu ukur durasinya
+//   TTS_ENGINE=edge npm run voiceover                   → suara gratis Microsoft Edge (perlu `pip install edge-tts`, tanpa kunci)
 //   npm run voiceover -- --measure                       → hanya ukur rekaman yang sudah ada (mis. rekaman suara sendiri)
 //
 // File disimpan di public/voiceover/<kode-baris>.mp3 (kode lihat naskah/NASKAH_VOICEOVER.md).
@@ -14,6 +15,9 @@ import {lineKey} from '../src/timeline.ts';
 import {ttsText} from '../src/tts.ts';
 
 const measureOnly = process.argv.includes('--measure');
+const engine = (process.env.TTS_ENGINE || 'elevenlabs').toLowerCase();
+const edgeVoice = process.env.EDGE_VOICE || 'id-ID-ArdiNeural';
+const edgeRate = process.env.EDGE_RATE || '-4%';
 const apiKey = process.env.ELEVENLABS_API_KEY;
 // Voice ID suara klon (dari akun ElevenLabs pemilik suara). Sengaja tanpa nilai bawaan.
 const voiceId = process.env.ELEVENLABS_VOICE_ID || '';
@@ -21,11 +25,11 @@ const modelId = process.env.ELEVENLABS_MODEL || 'eleven_v4';
 
 mkdirSync('public/voiceover', {recursive: true});
 
-if (!measureOnly && !apiKey) {
+if (!measureOnly && engine !== 'edge' && !apiKey) {
   console.error('ELEVENLABS_API_KEY belum diisi. Gunakan --measure untuk mengukur rekaman sendiri.');
   process.exit(1);
 }
-if (!measureOnly && !voiceId) {
+if (!measureOnly && engine !== 'edge' && !voiceId) {
   console.error('ELEVENLABS_VOICE_ID belum diisi: isi voice ID suara klon (input workflow atau secret ELEVENLABS_VOICE_ID).');
   process.exit(1);
 }
@@ -54,6 +58,16 @@ for (const scene of SCRIPT) {
   for (const [i, line] of scene.lines.entries()) {
     const key = lineKey(scene.id, i);
     const file = `public/voiceover/${key}.mp3`;
+    if (!measureOnly && !existsSync(file) && engine === 'edge') {
+      // Edge TTS: dicoba ulang sampai 4 kali (layanan kadang menolak sementara)
+      for (let attempt = 1; ; attempt++) {
+        const r = spawnSync('edge-tts', ['--voice', edgeVoice, `--rate=${edgeRate}`, '--text', ttsText(line), '--write-media', file], {encoding: 'utf8'});
+        if (r.status === 0 && existsSync(file)) break;
+        if (attempt >= 4) throw new Error(`${key}: edge-tts gagal: ${r.stderr}`);
+        await new Promise((res) => setTimeout(res, 2000 * attempt));
+      }
+      console.log(`✓ ${key} (edge)`);
+    }
     if (!measureOnly && !existsSync(file)) {
       const prev = scene.lines[i - 1] ? ttsText(scene.lines[i - 1]) : undefined;
       const next = scene.lines[i + 1] ? ttsText(scene.lines[i + 1]) : undefined;

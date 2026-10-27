@@ -1,40 +1,42 @@
 // Teks khusus mesin suara (TTS). Subtitle tetap memakai `text` (dengan simbol),
 // sedangkan ElevenLabs menerima versi yang ejaannya dibuat ramah pengucapan Indonesia:
 // huruf tunggal dibaca sebagai nama hurufnya (J → "je", B → "be"), nama huruf Yunani
-// dieja seperti di kelas (phi → "fi", theta → "teta"). Baris boleh memberi `tts` sendiri.
+// dieja seperti di kelas (theta → "teta", rho → "ro"), nama tokoh dieja seperti diucapkan. Baris boleh memberi `tts` sendiri.
 import type {Line} from './script.ts';
 
 const LETTER: Record<string, string> = {
-  B: 'be',
-  C: 'ce',
-  D: 'de',
-  E: 'e',
   F: 'ef',
-  I: 'i',
-  J: 'je',
-  L: 'el',
-  M: 'em',
-  P: 'pe',
-  R: 'er',
+  W: 'we',
+  K: 'ka',
+  U: 'u',
   T: 'te',
-  Y: 'ye',
-  q: 'ki',
-  r: 'er',
+  Q: 'ki',
+  H: 'ha',
+  P: 'pe',
+  g: 'ge',
+  v: 'fe',
   m: 'em',
   h: 'ha',
-  c: 'ce',
   k: 'ka',
   x: 'eks',
-  z: 'zet',
+  y: 'ye',
   s: 'es',
-  p: 'pe',
   d: 'de',
 };
 
 const WORD: Record<string, string> = {
-  phi: 'fi',
   theta: 'teta',
-  'Schrödinger': 'Syrodinger',
+  rho: 'ro',
+  Feynman: 'Fainmen',
+  Joule: 'Jul',
+  joule: 'jul',
+  James: 'Jems',
+  Boltzmann: 'Boltsman',
+  Hooke: 'Huk',
+  watt: 'wat',
+  kilojoule: 'kilojul',
+  roller: 'roler',
+  coaster: 'koster',
 };
 
 export const ttsText = (line: Line) => {

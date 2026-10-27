@@ -32,9 +32,10 @@ export const Hook: React.FC = () => {
   const {t, cue, cueEnd, dur} = useScene();
   const pull = ramp(t, cue(1) + 0.4, cueEnd(1) - 0.2, EASE_IN_OUT);
   const tr = cueEnd(1) + 0.15; // saat dilepas
-  // satu periode penuh berakhir tepat ketika baris 4 dimulai (+0,5 dtk)
-  const T = Math.max(3.6, Math.min(7, cue(4) + 0.3 - tr));
-  const gamma = 0.04 / T;
+    // satu atau beberapa ayunan penuh berakhir tepat ketika baris 4 dimulai (+0,3 dtk)
+  const span = Math.max(3.6, cue(4) + 0.3 - tr);
+  const T = span / Math.max(1, Math.round(span / 4.5));
+  const gamma = 0.04 / span;
   const tau = t - tr;
   const theta = tau < 0 ? TH0 * pull + 0.01 * Math.sin(t * 1.3) * (1 - pull) : TH0 * Math.exp(-gamma * tau) * Math.cos((2 * Math.PI * tau) / T);
   const bx = PIV.x + L * Math.sin(theta);
@@ -66,7 +67,7 @@ export const Hook: React.FC = () => {
   }).filter(Boolean) as {x: number; y: number; o: number}[];
 
   // titik terdekat saat kembali (setelah satu periode)
-  const xBack = PIV.x + L * Math.sin(TH0 * Math.exp(-gamma * T)) + R;
+  const xBack = PIV.x + L * Math.sin(TH0 * Math.exp(-gamma * span)) + R;
   return (
     <AbsoluteFill>
       <Stage>

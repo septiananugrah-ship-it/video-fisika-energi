@@ -67,8 +67,36 @@ jobs:
           retention-days: 2
           compression-level: 0
 
+  intro:
+    # Intro SCIENTIAN "Explore Science with Yayan" dirender langsung dari repo science-intro.
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: septiananugrah-ship-it/science-intro
+          path: intro-src
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Render intro
+        working-directory: intro-src
+        run: |
+          npm ci
+          npx remotion browser ensure
+          npx remotion render src/index.ts ${{ inputs.resolusi == '1080p' && 'Intro' || 'Intro2K' }} ../intro/intro.mp4 --codec=h264 --crf=16
+      - uses: actions/upload-artifact@v4
+        with:
+          name: intro-${{ inputs.nama || 'video' }}
+          path: intro/intro.mp4
+          retention-days: 2
+          compression-level: 0
+
   assemble:
-    needs: render
+    needs: [render, intro]
+    if: ${{ !cancelled() && needs.render.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -87,6 +115,12 @@ jobs:
           pattern: chunk-${{ inputs.nama || 'video' }}-*
           merge-multiple: true
           path: out/chunks
+      - name: Unduh intro (bila berhasil dirender)
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: intro-${{ inputs.nama || 'video' }}
+          path: intro
       - name: Gabungkan video + audio
         run: ./scripts/assemble.sh
         env:
