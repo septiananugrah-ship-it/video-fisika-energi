@@ -1,0 +1,88 @@
+name: Buat voice-over ElevenLabs (suara klon) + render 2K
+on:
+  workflow_dispatch:
+    inputs:
+      voice_id:
+        description: 'Voice ID suara klon ElevenLabs (kosongkan bila sudah disimpan sebagai secret ELEVENLABS_VOICE_ID)'
+        required: false
+        default: ''
+      model:
+        description: 'Model ElevenLabs'
+        type: choice
+        options: ['eleven_v4', 'eleven_multilingual_v2']
+        default: 'eleven_v4'
+      ulang_semua:
+        description: 'Hapus semua suara lama dan buat ulang dari awal (memakai kredit penuh)'
+        type: boolean
+        default: false
+      render:
+        description: 'Langsung render 2K (versi dengan narasi + tanpa narasi) setelah suara selesai'
+        type: boolean
+        default: true
+permissions:
+  contents: write
+concurrency:
+  group: voiceover
+  cancel-in-progress: false
+jobs:
+  voiceover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install ffmpeg & numpy
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg && python3 -m pip install numpy
+      - run: npm ci
+      - name: Hapus suara lama
+        if: inputs.ulang_semua
+        run: rm -f public/voiceover/*.mp3
+      - name: Buat suara per baris (hanya baris yang belum ada)
+        run: npm run voiceover
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ inputs.voice_id || secrets.ELEVENLABS_VOICE_ID }}
+          ELEVENLABS_MODEL: ${{ inputs.model }}
+      - name: Sesuaikan timeline, naskah & musik dengan durasi suara
+        run: npm run timeline && npm run music
+      - name: Simpan ke repo (juga bila gagal di tengah, agar kredit tidak terbuang)
+        if: always()
+        env:
+          MODEL: ${{ inputs.model }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/voiceover src/voiceover.ts naskah public/timeline.json public/music.mp3 || true
+          if git diff --cached --quiet; then echo "Tidak ada perubahan."; exit 0; fi
+          git commit -m "Voice-over ElevenLabs suara klon ($MODEL)"
+          git push origin HEAD:main
+      - name: Catat commit
+        id: sha
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+    outputs:
+      sha: ${{ steps.sha.outputs.sha }}
+
+  render:
+    needs: voiceover
+    if: inputs.render
+    uses: ./.github/workflows/render-video.yml
+    with:
+      resolusi: '2k'
+      props: '{"showCaptions":true,"musicVolume":0.35,"voiceover":true}'
+      ref: ${{ needs.voiceover.outputs.sha }}
+      nama: 'dengan-narasi'
+
+  render-tanpa-narasi:
+    needs: voiceover
+    if: inputs.render
+    uses: ./.github/workflows/render-video.yml
+    with:
+      resolusi: '2k'
+      props: '{"showCaptions":true,"musicVolume":0.9,"voiceover":false}'
+      ref: ${{ needs.voiceover.outputs.sha }}
+      nama: 'tanpa-narasi'

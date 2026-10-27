@@ -1,0 +1,100 @@
+name: Render Usaha & Energi 2K 30FPS
+on:
+  workflow_call:
+    inputs:
+      resolusi:
+        type: string
+        default: '2k'
+      props:
+        type: string
+        default: '{}'
+      ref:
+        type: string
+        default: ''
+      nama:
+        type: string
+        default: 'video'
+  workflow_dispatch:
+    inputs:
+      resolusi:
+        description: 'Resolusi output'
+        type: choice
+        options: ['2k', '1080p']
+        default: '2k'
+      props:
+        description: 'Props JSON. Tanpa narasi: {"showCaptions":true,"musicVolume":0.9,"voiceover":false} · dengan narasi: {"showCaptions":true,"musicVolume":0.35,"voiceover":true}'
+        required: false
+        default: '{"showCaptions":true,"musicVolume":0.9,"voiceover":false}'
+      nama:
+        description: 'Akhiran nama file, mis. tanpa-narasi atau dengan-narasi'
+        required: false
+        default: 'tanpa-narasi'
+permissions:
+  contents: read
+env:
+  CHUNKS: 12
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        chunk: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || '' }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: npm ci
+      - run: npx remotion browser ensure
+      - name: Render potongan ${{ matrix.chunk }}
+        run: node --experimental-strip-types scripts/render-chunk.ts
+        env:
+          CHUNK: ${{ matrix.chunk }}
+          COMPOSITION: ${{ inputs.resolusi == '1080p' && 'UsahaEnergi' || 'UsahaEnergi2K' }}
+          PROPS: ${{ inputs.props || '{}' }}
+          RENDER_CONCURRENCY: 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ inputs.nama || 'video' }}-${{ matrix.chunk }}
+          path: out/chunks/chunk-*.mp4
+          retention-days: 2
+          compression-level: 0
+
+  assemble:
+    needs: render
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || '' }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chunk-${{ inputs.nama || 'video' }}-*
+          merge-multiple: true
+          path: out/chunks
+      - name: Gabungkan video + audio
+        run: ./scripts/assemble.sh
+        env:
+          PROPS: ${{ inputs.props || '{}' }}
+          OUT: out/usaha-energi-${{ inputs.nama || 'video' }}-${{ inputs.resolusi || '2k' }}-30fps.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: usaha-energi-${{ inputs.nama || 'video' }}-${{ inputs.resolusi || '2k' }}-30fps
+          path: out/usaha-energi-*.mp4
+          retention-days: 14
+          compression-level: 0
