@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, interpolateColors} from 'remotion';
-import {EASE_IN_OUT, mix, ramp, win} from '../anim';
+import {EASE_IN_OUT, cyc, mix, ramp, win} from '../anim';
 import {Ground} from '../components/physics';
 import {Arrow, Card, Formula, Glow, Label, Spark, Stage, Sub, Tint, V} from '../components/primitives';
 import {useScene} from '../SceneContext';
@@ -129,17 +129,23 @@ export const Currency: React.FC = () => {
         {/* kinetik: bola melaju */}
         <g opacity={forms[0]}>
           <rect x={200} y={560} width={460} height={270} rx={20} fill="rgba(10,16,36,0.7)" stroke={C.kin} strokeOpacity={0.5} strokeWidth={2} />
-          {(() => {
-            const x = 260 + (((t * 160) % 360) + 360) % 360;
-            const fade = Math.min(1, (x - 260) / 50, (620 - x) / 50);
-            return (
-              <g opacity={Math.max(0, fade)}>
-                <Glow x={x} y={720} r={70} color="kin" opacity={0.6} />
-                <circle cx={x} cy={720} r={28} fill={C.kin} />
-                <Arrow x1={x + 36} y1={720} x2={x + 100} y2={720} color="kin" width={5} />
-              </g>
-            );
-          })()}
+          <clipPath id="clip-kin">
+            <rect x={200} y={560} width={460} height={270} rx={20} />
+          </clipPath>
+          <g clipPath="url(#clip-kin)">
+            {[0, 0.5].map((off) => {
+              const ph = (t * 0.4 + off) % 1;
+              const x = 250 + ph * 330;
+              const o = cyc(ph);
+              return (
+                <g key={off} opacity={o}>
+                  <Glow x={x} y={720} r={70} color="kin" opacity={0.6} />
+                  <circle cx={x} cy={720} r={28} fill={C.kin} />
+                  <Arrow x1={x + 36} y1={720} x2={x + 100} y2={720} color="kin" width={5} />
+                </g>
+              );
+            })}
+          </g>
           <Label x={430} y={605} size={32} color={C.kin} weight={600}>
             kinetik · gerak
           </Label>

@@ -103,6 +103,9 @@ export const Conservative: React.FC = () => {
           <Label x={186} y={(FLOOR + SHELF) / 2} size={30} font="serif" italic color={C.pot} anchor="start">
             h = 2 m
           </Label>
+          <Label x={186} y={(FLOOR + SHELF) / 2 + 44} size={24} font="mono" color={C.muted} anchor="start">
+            m = 5 kg
+          </Label>
           <line x1={150} y1={SHELF} x2={900} y2={SHELF} stroke={C.pot} strokeOpacity={0.35} strokeWidth={2} strokeDasharray="6 8" />
         </g>
         {PATHS.map((p, i) => (
@@ -118,7 +121,7 @@ export const Conservative: React.FC = () => {
         </g>
         {PATHS.map((p, i) => (
           <g key={p.name} opacity={ramp(t, cue(0) + 1.2 + i * 1.3, cue(0) + 2.2 + i * 1.3) * (1 - fallOn * (i === 1 ? 1 : 0))}>
-            <Crate x={boxes[i][0]} y={boxes[i][1]} w={64} h={52} label="5 kg" color={p.color} />
+            <rect x={boxes[i][0] - 27} y={boxes[i][1] - 44} width={54} height={44} rx={9} fill={p.color} fillOpacity={0.3} stroke={p.color} strokeWidth={3} />
           </g>
         ))}
         {/* kotak jatuh */}

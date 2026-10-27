@@ -158,7 +158,7 @@ export const Spring: React.FC = () => {
           </Label>
         </g>
         <EnergyBars
-          x={1180}
+          x={1270}
           y={760}
           height={260}
           barW={80}

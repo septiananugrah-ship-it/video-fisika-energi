@@ -93,7 +93,7 @@ export const Recap: React.FC = () => {
             <div style={{fontFamily: FONT.head, fontSize: 26, color: it.color, fontWeight: 600, letterSpacing: 1}}>
               {String(i + 1).padStart(2, '0')} · {it.title}
             </div>
-            <div style={{fontFamily: FONT.serif, fontSize: 50, marginTop: 22, whiteSpace: 'nowrap', textAlign: 'center'}}>{it.body}</div>
+            <div style={{fontFamily: FONT.serif, fontSize: 44, marginTop: 24, whiteSpace: 'nowrap', textAlign: 'center'}}>{it.body}</div>
           </div>
         );
       })}

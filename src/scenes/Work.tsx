@@ -26,29 +26,27 @@ const SignPanel: React.FC<{
   const loopOp = Math.min(1, ph * 9, (1 - ph) * 9);
   const x0 = cx - 190;
   const floor = 720;
-  // gerak: + dipercepat, 0 tetap, − diperlambat sampai berhenti
+  // gerak dalam panel (≤ 200 px, tidak menabrak batang K): + dipercepat, 0 tetap, − diperlambat sampai berhenti
+  const u = tau / P;
+  const TR = 200;
   let x = x0;
-  let v = 0;
+  let vRel = 0;
   if (kind === 'pos') {
-    v = 30 + 60 * tau;
-    x = x0 + 30 * tau + 30 * tau * tau;
+    x = x0 + TR * u * u;
+    vRel = u;
   } else if (kind === 'zero') {
-    v = 100;
-    x = x0 + 100 * tau;
+    x = x0 + TR * u;
+    vRel = 0.6;
   } else {
-    const v0 = 190;
-    const a = 70;
-    const ts = Math.min(tau, v0 / a);
-    v = Math.max(0, v0 - a * tau);
-    x = x0 + v0 * ts - 0.5 * a * ts * ts;
+    x = x0 + TR * (1 - (1 - u) * (1 - u));
+    vRel = 1 - u;
   }
-  const vmax = kind === 'pos' ? 30 + 60 * P : kind === 'zero' ? 100 : 190;
-  const kRel = (v * v) / (230 * 230);
+  const v = vRel * 140;
+  const kRel = vRel * vRel;
   const color = kind === 'pos' ? C.work : kind === 'zero' ? C.muted : C.heat;
   const title = kind === 'pos' ? 'W > 0' : kind === 'zero' ? 'W = 0' : 'W < 0';
   const sub = kind === 'pos' ? 'gaya searah gerak · θ < 90°' : kind === 'zero' ? 'gaya tegak lurus · θ = 90°' : 'gaya melawan gerak · θ > 90°';
   const bx = x + 50;
-  void vmax;
   return (
     <g opacity={op}>
       <rect x={cx - 250} y={380} width={500} height={470} rx={22} fill="rgba(10,16,36,0.72)" stroke={color} strokeOpacity={0.6} strokeWidth={2} />
@@ -62,13 +60,16 @@ const SignPanel: React.FC<{
       {kind === 'neg'
         ? Array.from({length: 22}, (_, i) => <line key={i} x1={cx - 220 + i * 20} y1={floor + 2} x2={cx - 232 + i * 20} y2={floor + 18} stroke={C.faint} strokeWidth={2} />)
         : null}
-      <g opacity={loopOp}>
+      <clipPath id={`clip-${kind}`}>
+        <rect x={cx - 250} y={380} width={430} height={470} rx={22} />
+      </clipPath>
+      <g opacity={loopOp} clipPath={`url(#clip-${kind})`}>
         <rect x={x} y={floor - 80} width={100} height={80} rx={10} fill="url(#crate)" stroke={C.pot} strokeWidth={3} />
-        {kind === 'pos' ? <Arrow x1={bx + 52} y1={floor - 40} x2={bx + 150} y2={floor - 40} color="force" width={5} /> : null}
+        {kind === 'pos' ? <Arrow x1={bx + 52} y1={floor - 40} x2={bx + 120} y2={floor - 40} color="force" width={5} /> : null}
         {kind === 'zero' ? <Arrow x1={bx} y1={floor - 86} x2={bx} y2={floor - 180} color="force" width={5} /> : null}
-        {kind === 'neg' && v > 1 ? <Arrow x1={x - 2} y1={floor - 10} x2={x - 92} y2={floor - 10} color="heat" width={5} /> : null}
+        {kind === 'neg' && v > 2 ? <Arrow x1={x - 2} y1={floor - 10} x2={x - 92} y2={floor - 10} color="heat" width={5} /> : null}
         {/* kecepatan */}
-        {v > 2 ? <Arrow x1={bx - 30} y1={floor - 112} x2={bx - 30 + v * 0.55} y2={floor - 112} color="kin" width={3} opacity={kind === 'zero' ? 0 : 1} /> : null}
+        {v > 2 ? <Arrow x1={bx - 30} y1={floor - 112} x2={bx - 30 + v * 0.6} y2={floor - 112} color="kin" width={3} opacity={kind === 'zero' ? 0 : 1} /> : null}
       </g>
       {/* batang K */}
       <rect x={cx + 190} y={560} width={34} height={140} rx={6} fill={C.kin} opacity={0.1} />
@@ -93,7 +94,7 @@ export const Work: React.FC = () => {
   const pushX = 560 + (pushT > 0 ? Math.min(380, 12 * pushT * pushT) : 0);
 
   // ---- koper & tali (baris 2–6) ----
-  const scene2 = win(t, cue(2) - 0.2, cue(7) + 0.4, 0.8, 0.8);
+  const scene2 = win(t, cue(2) - 0.2, cue(8) - 0.5, 0.8, 0.6);
   const sx = 380 + 8 * Math.max(0, t - cue(2)); // laju tetap
   const hx = sx; // titik tali pada pegangan
   const hy = FLOOR - 150 - 22;
@@ -242,6 +243,19 @@ export const Work: React.FC = () => {
         <V color={C.work}>W</V> = <V color={C.force}>F</V> <V color={C.cyan}>s</V>{' '}
         <span style={{color: interpolateColors(cosHi, [0, 1], [C.ink, C.gold]), textShadow: `0 0 ${24 * cosHi}px rgba(255,201,74,0.8)`}}>cos θ</span>
       </Formula>
+      <Card x={1360} y={420} opacity={win(t, cue(7) + 0.3, cue(8) - 0.3, 0.6, 0.5)} accent={C.gold} style={{padding: '14px 28px'}}>
+        <div style={{fontFamily: FONT.head, fontSize: 30, lineHeight: 1.55}}>
+          <div>
+            θ &lt; 90° → cos θ &gt; 0 → <span style={{color: C.work, fontWeight: 700}}>+</span>
+          </div>
+          <div>
+            θ = 90° → cos θ = 0 → <span style={{color: C.muted, fontWeight: 700}}>0</span>
+          </div>
+          <div>
+            θ &gt; 90° → cos θ &lt; 0 → <span style={{color: C.heat, fontWeight: 700}}>−</span>
+          </div>
+        </div>
+      </Card>
       <Formula x={1450} y={560} p={bag * ramp(t, cue(11) + 1.2, cue(11) + 2.2)} accent={C.work} size={60} caption="tas tidak berpindah, tidak ada energi masuk ke tas">
         <V color={C.work}>
           W<TSubHtml>tangan</TSubHtml>

@@ -323,7 +323,7 @@ export const Plot: React.FC<{
           </Label>
         </g>
       ))}
-      <Label x={a.x0 + a.w + 34} y={a.y0 + 58} size={26} font="serif" italic anchor="end" color={C.ink}>
+      <Label x={a.x0 + a.w + 46} y={a.y0} size={26} font="serif" italic anchor="start" color={C.ink}>
         {xLabel}
       </Label>
       <Label x={a.x0 + 18} y={a.y0 - a.h - 34} size={26} font="serif" italic anchor="start" color={C.ink}>

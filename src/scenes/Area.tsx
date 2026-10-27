@@ -89,7 +89,7 @@ export const Area: React.FC = () => {
         <Label x={px(A, 5.2)} y={A.y0 - 44} size={26} color={C.gold} opacity={xHi} weight={600}>
           posisi, bukan waktu!
         </Label>
-        <rect x={px(A, 6) - 70} y={A.y0 + 16} width={120} height={36} rx={10} fill="none" stroke={C.gold} strokeWidth={3} opacity={xHi} />
+        <rect x={A.x0 + A.w + 34} y={A.y0 - 22} width={100} height={44} rx={10} fill="none" stroke={C.gold} strokeWidth={3} opacity={xHi} />
 
         {/* ===== grafik gaya berubah ===== */}
         <g opacity={g1}>
@@ -169,7 +169,7 @@ export const Area: React.FC = () => {
         </g>
       </Stage>
 
-      <Card x={960} y={232} opacity={win(t, 0.6, cue(1), 0.7, 0.6)} accent={C.force} style={{padding: '12px 28px'}}>
+      <Card x={1480} y={430} opacity={win(t, 0.6, cue(1), 0.7, 0.6)} accent={C.force} style={{padding: '12px 28px'}}>
         <div style={{fontFamily: FONT.serif, fontSize: 40}}>
           <V>W</V> = <V>F s</V> <span style={{fontFamily: FONT.head, fontSize: 30, color: C.muted}}>hanya jika F tetap</span>
         </div>
