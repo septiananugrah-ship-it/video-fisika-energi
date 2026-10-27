@@ -1,0 +1,759 @@
+1
+00:00:01,600 --> 00:00:06,451
+Sebuah bola boling digantung dengan tali panjang dari langit-langit.
+
+2
+00:00:06,451 --> 00:00:12,923
+Seseorang menariknya sampai menyentuh ujung hidung, lalu melepaskannya tanpa mendorong.
+
+3
+00:00:12,923 --> 00:00:18,262
+Bola berayun menjauh, lalu kembali, meluncur lurus ke arah wajahnya.
+
+4
+00:00:18,262 --> 00:00:21,338
+Ia tidak bergerak sedikit pun.
+
+5
+00:00:21,338 --> 00:00:27,532
+Bola berhenti beberapa sentimeter dari hidungnya, lalu berayun pergi lagi.
+
+6
+00:00:27,532 --> 00:00:33,449
+Ia tidak sedang bertaruh nyawa. Ia sedang memercayai satu hukum alam.
+
+7
+00:00:33,449 --> 00:00:39,532
+Ada sesuatu yang dibawa bola itu, yang tidak pernah bertambah dengan sendirinya.
+
+8
+00:00:39,532 --> 00:00:42,885
+Sesuatu itu kita sebut energi.
+
+9
+00:00:42,885 --> 00:00:55,360
+Di video ini, kita akan belajar membaca energi seperti membaca buku tabungan: dari mana datangnya, ke mana perginya, dan seberapa cepat ia dibelanjakan.
+
+10
+00:01:05,367 --> 00:01:10,118
+Video ini membahas usaha dan energi dalam tiga bagian.
+
+11
+00:01:10,118 --> 00:01:20,439
+Bagian pertama, konsep dan cara berpikirnya: usaha, energi kinetik, energi potensial, kekekalan energi, gesekan, dan daya.
+
+12
+00:01:20,439 --> 00:01:29,595
+Bagian kedua, energi dalam kimia: ikatan sebagai pegas, panas sebagai gerak molekul, dan bukit energi reaksi.
+
+13
+00:01:29,595 --> 00:01:37,819
+Bagian ketiga, penerapannya: dari pembangkit listrik tenaga air, rem mobil, sampai tagihan listrik di rumah.
+
+14
+00:01:40,433 --> 00:01:46,505
+Fisikawan Richard Feynman pernah menjelaskan energi dengan sebuah cerita sederhana.
+
+15
+00:01:46,505 --> 00:01:55,818
+Seorang anak punya dua puluh delapan balok mainan. Setiap sore ibunya menghitung, dan jumlahnya selalu dua puluh delapan.
+
+16
+00:01:55,818 --> 00:02:02,856
+Suatu hari hanya ada dua puluh tiga. Ternyata lima balok disembunyikan di dalam kotak.
+
+17
+00:02:02,856 --> 00:02:11,426
+Hari lain, beberapa balok terlempar keluar jendela. Begitu ikut dihitung, totalnya tetap dua puluh delapan.
+
+18
+00:02:11,426 --> 00:02:18,984
+Ibunya menemukan aturan: balok yang terlihat, ditambah yang tersembunyi, jumlahnya selalu sama.
+
+19
+00:02:18,984 --> 00:02:28,119
+Energi persis seperti itu. Bukan benda yang bisa dipegang, melainkan angka yang tetap ketika semua bentuknya dijumlahkan.
+
+20
+00:02:28,119 --> 00:02:38,785
+Bentuknya bermacam-macam: energi gerak atau kinetik, energi tersimpan atau potensial, dan energi termal yang tersembunyi dalam getaran molekul.
+
+21
+00:02:38,785 --> 00:02:47,054
+Satuannya joule. Satu joule kira-kira energi untuk mengangkat sebuah apel kecil setinggi satu meter.
+
+22
+00:02:47,054 --> 00:02:54,658
+Lalu bagaimana energi berpindah dari satu benda ke benda lain? Lewat sesuatu yang disebut usaha.
+
+23
+00:02:57,267 --> 00:03:04,893
+Dalam bahasa sehari-hari, usaha berarti berjuang keras. Dalam fisika, artinya lebih tajam.
+
+24
+00:03:04,893 --> 00:03:12,208
+Usaha adalah energi yang dipindahkan oleh sebuah gaya, ketika titik kerjanya ikut berpindah.
+
+25
+00:03:12,208 --> 00:03:15,538
+Bayangkan menarik koper dengan tali yang miring.
+
+26
+00:03:15,538 --> 00:03:22,885
+Gaya tarikan bisa dipecah menjadi dua bagian: satu searah gerak, satu tegak lurus gerak.
+
+27
+00:03:22,885 --> 00:03:30,477
+Bagian yang tegak lurus hanya mengurangi tekanan koper pada lantai, tetapi tidak mempercepatnya ke depan.
+
+28
+00:03:30,477 --> 00:03:36,572
+Hanya bagian yang searah gerak, F kali kosinus theta, yang memindahkan energi.
+
+29
+00:03:36,572 --> 00:03:45,450
+Maka usaha sama dengan F kali s kali kosinus theta: gaya, jarak perpindahan, dan sudut di antara keduanya.
+
+30
+00:03:45,450 --> 00:03:48,214
+Sudut inilah yang menentukan tanda.
+
+31
+00:03:48,214 --> 00:03:54,717
+Jika gaya searah gerak, usahanya positif: energi masuk, dan benda makin cepat.
+
+32
+00:03:54,717 --> 00:04:02,541
+Jika gaya tegak lurus gerak, usahanya nol: gaya itu ada, tetapi tidak ada energi yang berpindah.
+
+33
+00:04:02,541 --> 00:04:09,999
+Jika gaya melawan gerak, seperti gesekan, usahanya negatif: energi diambil dari benda.
+
+34
+00:04:09,999 --> 00:04:18,157
+Itulah sebabnya memegang tas berat sambil berdiri diam tidak melakukan usaha pada tas, walaupun tanganmu pegal.
+
+35
+00:04:18,157 --> 00:04:27,659
+Tasnya tidak berpindah, jadi tidak ada energi yang masuk ke tas. Pegalnya berasal dari otot yang terus berkontraksi di dalam tubuhmu.
+
+36
+00:04:30,267 --> 00:04:40,146
+Mari berhitung. Koper sepuluh kilogram ditarik sejauh dua puluh meter dengan gaya enam puluh newton, membentuk sudut enam puluh derajat.
+
+37
+00:04:40,146 --> 00:04:44,331
+Gesekan lantai sebesar dua belas newton melawan gerak.
+
+38
+00:04:44,331 --> 00:04:54,464
+Usaha tarikan: enam puluh, kali dua puluh, kali kosinus enam puluh derajat, yaitu setengah. Hasilnya enam ratus joule.
+
+39
+00:04:54,464 --> 00:05:01,910
+Usaha gesekan: minus dua belas kali dua puluh, yaitu minus dua ratus empat puluh joule.
+
+40
+00:05:01,910 --> 00:05:07,239
+Berat koper dan gaya normal lantai tegak lurus gerak, jadi usahanya nol.
+
+41
+00:05:07,239 --> 00:05:12,976
+Usaha total adalah jumlah semuanya: tiga ratus enam puluh joule.
+
+42
+00:05:12,976 --> 00:05:23,086
+Perhatikan: tarikan menyumbang enam ratus joule, tetapi koper hanya menerima tiga ratus enam puluh. Sisanya diambil gesekan.
+
+43
+00:05:23,086 --> 00:05:29,558
+Usaha total inilah yang menentukan perubahan kelajuan koper. Ingat angka ini.
+
+44
+00:05:32,167 --> 00:05:39,682
+Rumus F kali s hanya berlaku bila gayanya tetap. Bagaimana jika gaya berubah sepanjang jalan?
+
+45
+00:05:39,682 --> 00:05:44,375
+Triknya: potong perjalanan menjadi langkah-langkah yang sangat kecil.
+
+46
+00:05:44,375 --> 00:05:51,790
+Pada setiap langkah sekecil d x, gaya hampir tidak sempat berubah, jadi usahanya F kali d x.
+
+47
+00:05:51,790 --> 00:05:57,873
+Di grafik gaya terhadap posisi, F kali d x adalah luas sebuah pita tipis.
+
+48
+00:05:57,873 --> 00:06:05,777
+Jumlahkan semua pita, dan kita mendapat luas di bawah kurva. Penjumlahan inilah yang disebut integral.
+
+49
+00:06:05,777 --> 00:06:12,715
+Jadi usaha sama dengan integral F d x, yaitu luas di bawah grafik gaya terhadap posisi.
+
+50
+00:06:12,715 --> 00:06:20,250
+Luasnya bertanda: bagian di atas sumbu bernilai positif, bagian di bawah sumbu bernilai negatif.
+
+51
+00:06:20,250 --> 00:06:32,070
+Pada grafik ini: persegi panjang empat puluh joule, segitiga dua puluh joule, dikurangi segitiga sepuluh joule. Totalnya lima puluh joule.
+
+52
+00:06:32,070 --> 00:06:41,337
+Satu jebakan: sumbu mendatar harus posisi, bukan waktu. Luas grafik gaya terhadap waktu bukan usaha, melainkan impuls.
+
+53
+00:06:43,933 --> 00:06:49,293
+Sekarang pertanyaan besarnya: ke mana perginya usaha total itu?
+
+54
+00:06:49,293 --> 00:06:57,285
+Dorong sebuah troli dengan gaya total tetap F sejauh s. Menurut Newton, troli dipercepat sebesar F per m.
+
+55
+00:06:57,285 --> 00:07:03,934
+Dari kinematika, v akhir kuadrat dikurangi v awal kuadrat sama dengan dua a s.
+
+56
+00:07:03,934 --> 00:07:07,076
+Kalikan kedua ruas dengan setengah m.
+
+57
+00:07:07,076 --> 00:07:15,934
+Ruas kanan menjadi m a s, yaitu F kali s, usaha total. Ruas kiri menjadi selisih setengah m v kuadrat.
+
+58
+00:07:15,934 --> 00:07:23,627
+Besaran setengah m v kuadrat inilah energi kinetik, energi yang dimiliki benda karena bergerak.
+
+59
+00:07:23,627 --> 00:07:31,539
+Hasilnya disebut teorema usaha dan energi: usaha total sama dengan perubahan energi kinetik.
+
+60
+00:07:31,539 --> 00:07:43,891
+Kembali ke koper tadi: tiga ratus enam puluh joule masuk sebagai energi kinetik, sehingga koper yang awalnya diam melaju sekitar delapan koma lima meter per detik.
+
+61
+00:07:43,891 --> 00:07:51,973
+Yang paling penting adalah kuadratnya. Kelajuan dua kali lipat berarti energi kinetik empat kali lipat.
+
+62
+00:07:51,973 --> 00:07:58,910
+Lihat dua mobil identik bermassa satu ton, direm dengan gaya hambat yang sama, lima ribu newton.
+
+63
+00:07:58,910 --> 00:08:04,505
+Mobil yang melaju dua puluh meter per detik berhenti setelah empat puluh meter.
+
+64
+00:08:04,505 --> 00:08:13,741
+Mobil yang melaju empat puluh meter per detik, dua kali lebih cepat, butuh seratus enam puluh meter. Empat kali lebih jauh.
+
+65
+00:08:13,741 --> 00:08:20,390
+Rem harus menghabiskan energi kinetik, dan energi itu tumbuh menurut kuadrat kelajuan.
+
+66
+00:08:23,000 --> 00:08:31,678
+Sekarang pindahkan sebuah kotak dari lantai ke rak lewat tiga jalan berbeda: tangga, bidang miring, dan lintasan berkelok.
+
+67
+00:08:31,678 --> 00:08:38,848
+Hitung usaha gaya gravitasi pada setiap jalan. Hasilnya selalu sama: minus m g h.
+
+68
+00:08:38,848 --> 00:08:44,553
+Gravitasi hanya peduli pada beda ketinggian, bukan pada panjang jalannya.
+
+69
+00:08:44,553 --> 00:08:51,780
+Gaya seperti ini disebut gaya konservatif. Gravitasi dan pegas ideal termasuk di dalamnya.
+
+70
+00:08:51,780 --> 00:09:00,947
+Bandingkan dengan gesekan: makin panjang jalan yang digeser, makin banyak energi yang terambil. Gesekan bukan gaya konservatif.
+
+71
+00:09:00,947 --> 00:09:11,181
+Karena usaha gaya konservatif hanya bergantung pada posisi awal dan akhir, kita bisa mencatatnya sebagai energi yang tersimpan dalam posisi.
+
+72
+00:09:11,181 --> 00:09:19,828
+Inilah energi potensial, U, yang didefinisikan agar usaha gaya konservatif sama dengan minus perubahan U.
+
+73
+00:09:19,828 --> 00:09:29,638
+Tanda minus itu bermakna: jika gravitasi melakukan usaha positif, misalnya saat benda jatuh, energi potensialnya berkurang.
+
+74
+00:09:29,638 --> 00:09:37,362
+Energi potensial seperti tabungan: tidak terlihat sebagai gerak, tetapi siap dicairkan kapan saja.
+
+75
+00:09:37,362 --> 00:09:44,400
+Titik nolnya pun boleh kita pilih sendiri. Yang bermakna secara fisika hanyalah perubahannya.
+
+76
+00:09:47,000 --> 00:09:56,113
+Dekat permukaan Bumi, energi potensial gravitasi sama dengan m g y, dengan y ketinggian dari titik nol yang kita pilih.
+
+77
+00:09:56,113 --> 00:10:01,708
+Lempar sebuah bola lurus ke atas dengan kelajuan dua puluh meter per detik.
+
+78
+00:10:01,708 --> 00:10:09,143
+Perhatikan dua batang energi ini: jingga untuk energi kinetik, biru untuk energi potensial.
+
+79
+00:10:09,143 --> 00:10:15,437
+Saat bola naik, batang jingga menyusut dan batang biru tumbuh. Jumlahnya tidak berubah.
+
+80
+00:10:15,437 --> 00:10:22,863
+Di puncak, bola berhenti sesaat. Seluruh energi kinetiknya sudah menjadi energi potensial.
+
+81
+00:10:22,863 --> 00:10:32,197
+Setengah v kuadrat sama dengan g kali h, jadi tinggi maksimumnya dua puluh kuadrat dibagi dua puluh: dua puluh meter.
+
+82
+00:10:32,197 --> 00:10:39,978
+Pada ketinggian lima belas meter, sisa energi kinetiknya cukup untuk kelajuan sepuluh meter per detik.
+
+83
+00:10:39,978 --> 00:10:49,857
+Kelajuan itu sama saat bola naik maupun turun. Energi memberi tahu seberapa cepat, tetapi tidak memberi tahu ke arah mana.
+
+84
+00:10:52,467 --> 00:10:55,986
+Jenis tabungan kedua tersimpan di dalam pegas.
+
+85
+00:10:55,986 --> 00:11:03,332
+Hukum Hooke: gaya pegas sama dengan minus k kali x, dengan x simpangan dari panjang alaminya.
+
+86
+00:11:03,332 --> 00:11:11,576
+Tanda minus berarti pegas selalu melawan: ditarik, ia menarik balik; ditekan, ia mendorong balik.
+
+87
+00:11:11,576 --> 00:11:19,379
+Untuk menekan pegas, gaya yang diperlukan naik perlahan dari nol sampai k x. Grafiknya berupa garis lurus.
+
+88
+00:11:19,379 --> 00:11:26,360
+Usahanya adalah luas segitiga di bawah garis itu: setengah, kali x, kali k x.
+
+89
+00:11:26,360 --> 00:11:35,007
+Jadi energi potensial pegas adalah setengah k x kuadrat. Faktor setengah muncul karena gayanya mulai dari nol.
+
+90
+00:11:35,007 --> 00:11:44,486
+Sebuah balok dua kilogram meluncur empat meter per detik di lantai licin, lalu menabrak pegas dengan konstanta dua ratus newton per meter.
+
+91
+00:11:44,486 --> 00:11:54,743
+Energi kinetiknya enam belas joule. Saat pegas tertekan maksimum, balok berhenti sesaat dan seluruh enam belas joule pindah ke pegas.
+
+92
+00:11:54,743 --> 00:12:02,813
+Setengah kali dua ratus kali x kuadrat sama dengan enam belas, sehingga x sama dengan nol koma empat meter.
+
+93
+00:12:02,813 --> 00:12:10,239
+Uniknya, pada setengah tekanan itu, pegas baru menyimpan seperempat energi, bukan setengahnya.
+
+94
+00:12:10,239 --> 00:12:19,752
+Dan meskipun balok berhenti, ia tidak setimbang. Pegas sedang mendorong delapan puluh newton, sehingga balok segera terlempar balik.
+
+95
+00:12:22,367 --> 00:12:31,045
+Sekarang kita punya semua pemain: energi kinetik, energi potensial gravitasi, dan energi potensial pegas.
+
+96
+00:12:31,045 --> 00:12:36,362
+Jumlah energi kinetik dan energi potensial disebut energi mekanik.
+
+97
+00:12:36,362 --> 00:12:46,361
+Jika hanya gaya konservatif yang melakukan usaha, energi mekanik tetap: K awal tambah U awal sama dengan K akhir tambah U akhir.
+
+98
+00:12:46,361 --> 00:12:51,201
+Lihat pemain papan luncur di lintasan setengah pipa yang licin sempurna.
+
+99
+00:12:51,201 --> 00:13:00,171
+Di dasar, ia paling cepat. Di tepi, ia berhenti sesaat. Tetapi batang total energinya tidak pernah bergoyang.
+
+100
+00:13:00,171 --> 00:13:09,573
+Ia tidak akan pernah melewati ketinggian awalnya, kecuali ada yang menambah energi, misalnya hentakan kakinya sendiri.
+
+101
+00:13:09,573 --> 00:13:12,526
+Sekarang kembali ke bola boling tadi.
+
+102
+00:13:12,526 --> 00:13:20,695
+Bola dilepas dari ujung hidung tanpa dorongan. Energinya tidak cukup untuk naik lebih tinggi dari titik awalnya.
+
+103
+00:13:20,695 --> 00:13:30,297
+Bahkan sebagian kecil energinya diambil hambatan udara, jadi bola selalu kembali sedikit lebih rendah. Hidung pun selamat.
+
+104
+00:13:30,297 --> 00:13:37,712
+Tetapi jika bola didorong saat dilepas, energi tambahan itu akan kembali, tepat ke wajahnya.
+
+105
+00:13:40,300 --> 00:13:48,015
+Di dunia nyata, lantai selalu punya gesekan. Apakah energi mekanik lalu hilang begitu saja?
+
+106
+00:13:48,015 --> 00:13:52,034
+Gosok kedua telapak tanganmu. Terasa hangat.
+
+107
+00:13:52,034 --> 00:14:01,567
+Energi gerak tanganmu tidak lenyap. Ia berpindah menjadi energi termal: atom-atom di permukaan kulit bergetar lebih hebat.
+
+108
+00:14:01,567 --> 00:14:08,348
+Jadi kita perlu menambahkan satu suku ke neraca: usaha gaya lain, termasuk gesekan.
+
+109
+00:14:08,348 --> 00:14:17,095
+K awal tambah U awal tambah W lain sama dengan K akhir tambah U akhir. Inilah neraca energi yang paling serbaguna.
+
+110
+00:14:17,095 --> 00:14:28,403
+Contoh: balok dua kilogram meluncur dari diam menuruni bidang miring tiga puluh derajat sejauh lima meter, dengan koefisien gesek kinetik nol koma dua.
+
+111
+00:14:28,403 --> 00:14:37,128
+Awalnya balok menyimpan energi potensial lima puluh joule, karena ia akan turun setinggi dua koma lima meter.
+
+112
+00:14:37,128 --> 00:14:47,373
+Gaya normalnya m g kosinus tiga puluh derajat, sekitar tujuh belas koma tiga newton, sehingga gaya geseknya sekitar tiga koma lima newton.
+
+113
+00:14:47,373 --> 00:14:54,211
+Sepanjang lima meter, gesekan mengubah sekitar tujuh belas koma tiga joule menjadi panas.
+
+114
+00:14:54,211 --> 00:15:05,522
+Sisanya, tiga puluh dua koma tujuh joule, menjadi energi kinetik. Balok tiba di bawah dengan kelajuan sekitar lima koma tujuh meter per detik.
+
+115
+00:15:05,522 --> 00:15:16,556
+Lima puluh joule masuk, lima puluh joule keluar, hanya berganti wujud. Energi tidak hilang, hanya berpindah ke tempat yang sulit diambil kembali.
+
+116
+00:15:19,167 --> 00:15:25,838
+Dua orang bermassa sama menaiki tangga yang sama. Satu berjalan santai, satu berlari.
+
+117
+00:15:25,838 --> 00:15:31,933
+Keduanya menaikkan energi potensial yang sama besar. Usaha mereka sama.
+
+118
+00:15:31,933 --> 00:15:37,461
+Bedanya ada pada waktu. Yang berlari memindahkan energi lebih cepat.
+
+119
+00:15:37,461 --> 00:15:46,439
+Laju perpindahan energi inilah yang disebut daya: usaha dibagi waktu. Satuannya watt, yaitu joule per detik.
+
+120
+00:15:46,439 --> 00:15:52,145
+Untuk gaya yang searah gerak, daya juga sama dengan gaya kali kecepatan.
+
+121
+00:15:52,145 --> 00:15:59,858
+Contoh: sebuah motor mengangkat beban dua ratus kilogram setinggi dua belas meter dalam lima belas detik.
+
+122
+00:15:59,858 --> 00:16:08,993
+Energi bergunanya m g h, dua puluh empat ribu joule. Dibagi lima belas detik, dayanya seribu enam ratus watt.
+
+123
+00:16:08,993 --> 00:16:17,929
+Tetapi tidak ada mesin yang sempurna. Jika efisiensi motor delapan puluh persen, daya yang masuk harus dua ribu watt.
+
+124
+00:16:17,929 --> 00:16:27,420
+Efisiensi adalah perbandingan energi berguna terhadap energi yang masuk. Sisanya menjadi panas di kumparan dan bantalan motor.
+
+125
+00:16:27,420 --> 00:16:37,808
+Satu hal yang sering tertukar: kilowatt jam bukan satuan daya, melainkan energi. Satu kilowatt jam sama dengan tiga koma enam juta joule.
+
+126
+00:16:40,400 --> 00:16:49,058
+Bagaimana memakai semua ini untuk memecahkan soal? Kuncinya bukan menghafal rumus, melainkan urutan berpikir.
+
+127
+00:16:49,058 --> 00:16:53,463
+Langkah satu: gambar keadaan awal dan keadaan akhir.
+
+128
+00:16:53,463 --> 00:16:58,057
+Langkah dua: tentukan sistem dan titik nol energi potensial.
+
+129
+00:16:58,057 --> 00:17:06,635
+Langkah tiga: daftar energi di kedua keadaan, lalu coret yang nol karena alasan fisik, bukan karena hafalan.
+
+130
+00:17:06,635 --> 00:17:12,372
+Langkah empat: tulis neraca energi dengan simbol dulu, baru masukkan angka.
+
+131
+00:17:12,372 --> 00:17:16,789
+Langkah lima: periksa apakah jawabannya masuk akal.
+
+132
+00:17:16,789 --> 00:17:30,195
+Coba soal ini: benda satu kilogram dijatuhkan dari ketinggian satu koma dua meter di atas pegas tegak dengan konstanta dua ratus newton per meter. Berapa tekanan maksimum pegas?
+
+133
+00:17:30,195 --> 00:17:41,638
+Jebakannya: setelah menyentuh pegas, benda masih terus turun sejauh x. Jadi penurunan totalnya satu koma dua tambah x, bukan satu koma dua saja.
+
+134
+00:17:41,638 --> 00:17:51,906
+Pilih titik nol di titik terendah. Di awal dan di titik terendah, benda sama-sama diam, jadi energi kinetiknya nol di kedua keadaan.
+
+135
+00:17:51,906 --> 00:17:56,857
+Maka m g kali h tambah x, sama dengan setengah k x kuadrat.
+
+136
+00:17:56,857 --> 00:18:07,545
+Dengan angka: sepuluh kali satu koma dua tambah x, sama dengan seratus x kuadrat. Akar positifnya, x sama dengan nol koma empat meter.
+
+137
+00:18:07,545 --> 00:18:18,133
+Periksa: di titik itu gaya pegas delapan puluh newton, jauh lebih besar dari berat sepuluh newton. Masuk akal, benda akan terpantul ke atas.
+
+138
+00:18:20,733 --> 00:18:29,103
+Sebagai mahasiswa kimia, di mana kita bertemu usaha dan energi? Ternyata di setiap ikatan kimia.
+
+139
+00:18:29,103 --> 00:18:34,986
+Dua atom yang berikatan berperilaku seperti dua bola yang dihubungkan pegas.
+
+140
+00:18:34,986 --> 00:18:45,219
+Didekatkan terlalu rapat, keduanya saling tolak. Dijauhkan, keduanya saling tarik. Ada satu jarak paling nyaman: panjang ikatan.
+
+141
+00:18:45,219 --> 00:18:50,725
+Grafik energi potensial terhadap jarak antaratom berbentuk seperti sumur.
+
+142
+00:18:50,725 --> 00:18:57,951
+Di dasar sumur, lengkungnya hampir persis parabola setengah k x kuadrat, sama seperti pegas tadi.
+
+143
+00:18:57,951 --> 00:19:09,074
+Ikatan H Cl, misalnya, punya konstanta pegas sekitar lima ratus enam belas newton per meter. Getaran pegas inilah yang dibaca spektroskopi inframerah.
+
+144
+00:19:09,074 --> 00:19:19,519
+Kedalaman sumur adalah energi ikatan. Untuk memutus ikatan H H, diperlukan sekitar empat ratus tiga puluh enam kilojoule per mol.
+
+145
+00:19:19,519 --> 00:19:27,901
+Artinya, memutus ikatan selalu butuh energi. Sebaliknya, membentuk ikatan selalu melepaskan energi.
+
+146
+00:19:27,901 --> 00:19:39,787
+Ini meluruskan salah kaprah yang umum: energi tidak tersimpan di dalam ikatan seperti bensin di tangki. Energi dilepaskan ketika ikatan yang lebih kuat terbentuk.
+
+147
+00:19:42,400 --> 00:19:48,106
+Lalu apa sebenarnya energi termal, tempat energi gesekan tadi menghilang?
+
+148
+00:19:48,106 --> 00:19:56,075
+Pada tahun seribu delapan ratus empat puluhan, James Joule menjatuhkan beban yang memutar kincir di dalam air.
+
+149
+00:19:56,075 --> 00:20:02,358
+Air menjadi sedikit lebih hangat. Energi potensial beban berubah menjadi panas.
+
+150
+00:20:02,358 --> 00:20:11,926
+Ia menemukan bahwa sekitar empat koma dua joule usaha selalu menghasilkan kenaikan suhu yang sama dengan satu kalori panas.
+
+151
+00:20:11,926 --> 00:20:18,884
+Hari ini kita tahu alasannya: panas adalah energi kinetik molekul yang bergerak acak.
+
+152
+00:20:18,884 --> 00:20:29,907
+Energi kinetik rata-rata satu molekul gas sama dengan tiga per dua k T, dengan k tetapan Boltzmann. Makin tinggi suhu, makin cepat molekul berlari.
+
+153
+00:20:29,907 --> 00:20:37,688
+Pada suhu kamar, molekul nitrogen di udara melesat dengan kelajuan sekitar lima ratus meter per detik.
+
+154
+00:20:37,688 --> 00:20:47,190
+Jadi energi gesekan tadi tidak hilang. Ia menjadi energi kinetik juga, hanya saja tersebar acak ke triliunan molekul.
+
+155
+00:20:49,800 --> 00:20:57,204
+Gabungkan semuanya, dan kita bisa membaca diagram energi reaksi seperti lintasan roller coaster.
+
+156
+00:20:57,204 --> 00:21:02,255
+Reaktan berada di sebuah lembah. Produk berada di lembah yang lain.
+
+157
+00:21:02,255 --> 00:21:11,311
+Di antara keduanya ada bukit: energi aktivasi. Molekul harus bertabrakan cukup keras untuk mendaki bukit ini.
+
+158
+00:21:11,311 --> 00:21:18,514
+Sama seperti kereta roller coaster yang tidak bisa melewati bukit yang lebih tinggi dari energinya.
+
+159
+00:21:18,514 --> 00:21:25,752
+Jika lembah produk lebih rendah, selisih energinya dilepas sebagai panas. Reaksinya eksoterm.
+
+160
+00:21:25,752 --> 00:21:34,854
+Menaikkan suhu berarti memberi molekul lebih banyak energi kinetik, sehingga lebih banyak tabrakan yang berhasil melewati bukit.
+
+161
+00:21:34,854 --> 00:21:41,326
+Katalis tidak menambah energi. Ia membuka jalan pintas dengan bukit yang lebih rendah.
+
+162
+00:21:41,326 --> 00:21:45,899
+Neraca energinya sama, dari bola boling sampai molekul.
+
+163
+00:21:48,500 --> 00:21:52,685
+Bendungan adalah tabungan energi potensial raksasa.
+
+164
+00:21:52,685 --> 00:22:03,319
+Air di waduk berada jauh di atas turbin. Saat dialirkan turun, energi potensialnya berubah menjadi energi kinetik aliran yang memutar turbin.
+
+165
+00:22:03,319 --> 00:22:12,166
+Setiap detik, massa air yang turun sama dengan massa jenis kali debit. Maka daya yang tersedia sama dengan rho g Q h.
+
+166
+00:22:12,166 --> 00:22:17,872
+Misalnya debit seratus meter kubik per detik, dengan tinggi jatuh seratus meter.
+
+167
+00:22:17,872 --> 00:22:28,983
+Dayanya sekitar seratus megawatt. Dengan efisiensi turbin dan generator sembilan puluh persen, sekitar sembilan puluh megawatt sampai ke jaringan listrik.
+
+168
+00:22:28,983 --> 00:22:38,016
+Itulah sebabnya PLTA dibangun di lembah yang dalam: tinggi jatuh yang besar berarti energi yang besar untuk setiap liter air.
+
+169
+00:22:40,600 --> 00:22:45,074
+Ingat, jarak pengereman sebanding dengan kuadrat kelajuan.
+
+170
+00:22:45,074 --> 00:22:52,966
+Di jalan raya, pengemudi juga butuh waktu reaksi, kira-kira satu detik, sebelum kakinya menginjak rem.
+
+171
+00:22:52,966 --> 00:22:57,540
+Selama itu, mobil masih melaju dengan kelajuan penuh.
+
+172
+00:22:57,540 --> 00:23:08,662
+Pada enam puluh kilometer per jam, jarak hentinya sekitar tiga puluh enam meter. Pada seratus kilometer per jam, sekitar delapan puluh tiga meter.
+
+173
+00:23:08,662 --> 00:23:15,411
+Kelajuan naik kurang dari dua kali, tetapi jarak berhenti lebih dari dua kali lipat.
+
+174
+00:23:15,411 --> 00:23:23,204
+Rem biasa mengubah energi kinetik mobil menjadi panas di cakram rem. Energi itu terbuang ke udara.
+
+175
+00:23:23,204 --> 00:23:33,003
+Mobil listrik memakai rem regeneratif: motornya dibalik menjadi generator, dan sebagian energi kinetik dikembalikan ke baterai.
+
+176
+00:23:33,003 --> 00:23:40,407
+Neraca energinya sama, tetapi kini sebagian energi berpindah ke tempat yang bisa dipakai lagi.
+
+177
+00:23:43,000 --> 00:23:50,415
+Tagihan listrik di rumah dihitung dalam kilowatt jam, karena yang dijual adalah energi, bukan daya.
+
+178
+00:23:50,415 --> 00:23:58,762
+Setrika seribu watt yang menyala dua jam menghabiskan dua kilowatt jam, atau sekitar tujuh koma dua juta joule.
+
+179
+00:23:58,762 --> 00:24:08,908
+Dengan energi sebesar itu, secara teori kita bisa mengangkat orang bermassa tujuh puluh kilogram setinggi lebih dari sepuluh kilometer.
+
+180
+00:24:08,908 --> 00:24:20,296
+Tubuh kita pun sebuah mesin. Berlari menaiki tangga setinggi tiga meter dalam tiga detik, orang tujuh puluh kilogram menghasilkan daya sekitar tujuh ratus watt.
+
+181
+00:24:20,296 --> 00:24:30,175
+Tetapi efisiensi otot hanya sekitar seperempat. Sisanya menjadi panas, itulah sebabnya tubuh berkeringat saat berolahraga.
+
+182
+00:24:30,175 --> 00:24:39,655
+Dan satu kalori pada label makanan sebenarnya satu kilokalori, yaitu sekitar empat ribu seratus delapan puluh empat joule.
+
+183
+00:24:42,067 --> 00:24:44,453
+Mari rangkum perjalanan kita.
+
+184
+00:24:44,453 --> 00:24:49,482
+Energi adalah angka yang tetap ketika semua bentuknya dijumlahkan.
+
+185
+00:24:49,482 --> 00:24:58,238
+Usaha adalah cara gaya memindahkan energi: F s kosinus theta, atau luas di bawah grafik gaya terhadap posisi.
+
+186
+00:24:58,238 --> 00:25:03,089
+Usaha total mengubah energi kinetik, setengah m v kuadrat.
+
+187
+00:25:03,089 --> 00:25:12,222
+Gaya konservatif menabung energi sebagai energi potensial: m g y untuk gravitasi, setengah k x kuadrat untuk pegas.
+
+188
+00:25:12,222 --> 00:25:18,971
+Gesekan tidak menghapus energi, hanya mengubahnya menjadi panas, yaitu gerak acak molekul.
+
+189
+00:25:18,971 --> 00:25:23,444
+Dan daya adalah seberapa cepat semua itu terjadi.
+
+190
+00:25:23,444 --> 00:25:31,946
+Jadi setiap kali menghadapi soal, tanyakan dua hal: dari mana energinya datang, dan ke mana ia pergi?

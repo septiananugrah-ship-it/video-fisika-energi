@@ -232,7 +232,7 @@ export const Reaction: React.FC = () => {
         <Label x={sx(S_P)} y={Y_P + 40} size={30} color={C.ink} weight={600} opacity={prodLabel}>
           produk
         </Label>
-        <Label x={sx(S_TOP)} y={Y_TOP - 40} size={24} color={C.muted} opacity={ea}>
+        <Label x={sx(S_TOP) + 48} y={Y_TOP + 6} size={24} color={C.muted} opacity={ea} anchor="start">
           keadaan transisi
         </Label>
         {/* garis tingkat & kurung Ea */}

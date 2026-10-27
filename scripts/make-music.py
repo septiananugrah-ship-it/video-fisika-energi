@@ -268,7 +268,7 @@ def main():
             'ffmpeg', '-v', 'error', '-y', '-i', str(wav),
             # buang frekuensi subsonik, lembutkan puncak, samakan kenyaringan (±-21 LUFS: aman di bawah narasi)
             '-af', 'highpass=f=38,equalizer=f=90:t=q:w=1:g=-3,loudnorm=I=-21:TP=-2:LRA=9',
-            '-ar', '44100', '-codec:a', 'libmp3lame', '-b:a', '192k', str(mp3),
+            '-ar', '44100', '-codec:a', 'libmp3lame', '-b:a', '160k', str(mp3),
         ],
         check=True,
     )

@@ -194,7 +194,7 @@ export const Home: React.FC = () => {
       </Stage>
 
       {/* ---- kartu panel A ---- */}
-      <div style={{position: 'absolute', left: 1080, top: 300, display: 'flex', flexDirection: 'column', gap: 24, opacity: chips * panelA}}>
+      <div style={{position: 'absolute', left: 960, top: 300, display: 'flex', flexDirection: 'column', gap: 24, opacity: chips * panelA}}>
         <div style={{fontFamily: FONT.head, fontSize: 34, color: C.muted, padding: '14px 26px', borderRadius: 14, border: `2px solid ${C.line}`, background: 'rgba(10,16,36,0.85)'}}>
           daya: <b style={{color: C.cyan}}>watt</b> — seberapa cepat
         </div>

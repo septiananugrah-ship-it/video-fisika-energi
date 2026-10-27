@@ -102,7 +102,7 @@ export const Brakes: React.FC = () => {
                 <rect x={X0 + sr * PPM} y={ln.ground + 22} width={brakeLen} height={9} rx={4} fill={C.heat} />
                 <Car x={front - 130 * CAR_S} y={ln.ground} color={ln.color} scale={CAR_S} wheel={wheel} braking={ramp(tau, T_R, T_R + 0.15) * (1 - 0.4 * ramp(tau, tStop, tStop + 0.4))} />
                 <HeatShimmer x1={front - 120} x2={front - 30} y={ln.ground} t={t} amount={0.8 * braking} />
-                <Label x={front - 70} y={ln.ground - 110} size={26} font="mono" color={ln.color} weight={600}>
+                <Label x={front - 70} y={ln.ground - 94} size={24} font="mono" color={ln.color} weight={600}>
                   {`${fmt(m.v * 3.6)} km/jam`}
                 </Label>
                 <g opacity={result[i]}>
@@ -131,13 +131,13 @@ export const Brakes: React.FC = () => {
           ))}
           {/* jam simulasi & asumsi */}
           <g opacity={clock}>
-            <Label x={X0 - 60} y={216} size={28} font="mono" color={C.ink} anchor="start" weight={600}>
+            <Label x={X0 - 60} y={200} size={28} font="mono" color={C.ink} anchor="start" weight={600}>
               {`t = ${fmt(Math.min(tau, T_R + 100 / 3.6 / A), 2)} s`}
             </Label>
-            <Label x={X0 + 170} y={216} size={22} color={C.muted} anchor="start">
+            <Label x={X0 + 170} y={200} size={22} color={C.muted} anchor="start">
               (gerak lambat 0,5×)
             </Label>
-            <Label x={X0 - 60} y={256} size={22} color={C.muted} anchor="start">
+            <Label x={X0 - 60} y={238} size={22} color={C.muted} anchor="start">
               model: waktu reaksi 1 s · perlambatan rem 7 m/s² (jalan kering)
             </Label>
           </g>

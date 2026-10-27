@@ -1,0 +1,252 @@
+[00:00] Bola boling di ujung hidung
+
+Sebuah bola boling digantung dengan tali panjang dari langit-langit.
+Seseorang menariknya sampai menyentuh ujung hidung, lalu melepaskannya tanpa mendorong.
+Bola berayun menjauh, lalu kembali, meluncur lurus ke arah wajahnya.
+Ia tidak bergerak sedikit pun.
+Bola berhenti beberapa sentimeter dari hidungnya, lalu berayun pergi lagi.
+Ia tidak sedang bertaruh nyawa. Ia sedang memercayai satu hukum alam.
+Ada sesuatu yang dibawa bola itu, yang tidak pernah bertambah dengan sendirinya.
+Sesuatu itu kita sebut energi.
+Di video ini, kita akan belajar membaca energi seperti membaca buku tabungan: dari mana datangnya, ke mana perginya, dan seberapa cepat ia dibelanjakan.
+
+[01:04] Peta video
+
+Video ini membahas usaha dan energi dalam tiga bagian.
+Bagian pertama, konsep dan cara berpikirnya: usaha, energi kinetik, energi potensial, kekekalan energi, gesekan, dan daya.
+Bagian kedua, energi dalam kimia: ikatan sebagai pegas, panas sebagai gerak molekul, dan bukit energi reaksi.
+Bagian ketiga, penerapannya: dari pembangkit listrik tenaga air, rem mobil, sampai tagihan listrik di rumah.
+
+[01:39] Bab 01 — Energi: angka yang selalu tetap
+
+Fisikawan Richard Feynman pernah menjelaskan energi dengan sebuah cerita sederhana.
+Seorang anak punya dua puluh delapan balok mainan. Setiap sore ibunya menghitung, dan jumlahnya selalu dua puluh delapan.
+Suatu hari hanya ada dua puluh tiga. Ternyata lima balok disembunyikan di dalam kotak.
+Hari lain, beberapa balok terlempar keluar jendela. Begitu ikut dihitung, totalnya tetap dua puluh delapan.
+Ibunya menemukan aturan: balok yang terlihat, ditambah yang tersembunyi, jumlahnya selalu sama.
+Energi persis seperti itu. Bukan benda yang bisa dipegang, melainkan angka yang tetap ketika semua bentuknya dijumlahkan.
+Bentuknya bermacam-macam: energi gerak atau kinetik, energi tersimpan atau potensial, dan energi termal yang tersembunyi dalam getaran molekul.
+Satuannya joule. Satu joule kira-kira energi untuk mengangkat sebuah apel kecil setinggi satu meter.
+Lalu bagaimana energi berpindah dari satu benda ke benda lain? Lewat sesuatu yang disebut usaha.
+
+[02:56] Bab 02 — Usaha: cara energi berpindah
+
+Dalam bahasa sehari-hari, usaha berarti berjuang keras. Dalam fisika, artinya lebih tajam.
+Usaha adalah energi yang dipindahkan oleh sebuah gaya, ketika titik kerjanya ikut berpindah.
+Bayangkan menarik koper dengan tali yang miring.
+Gaya tarikan bisa dipecah menjadi dua bagian: satu searah gerak, satu tegak lurus gerak.
+Bagian yang tegak lurus hanya mengurangi tekanan koper pada lantai, tetapi tidak mempercepatnya ke depan.
+Hanya bagian yang searah gerak, F kali kosinus theta, yang memindahkan energi.
+Maka usaha sama dengan F kali s kali kosinus theta: gaya, jarak perpindahan, dan sudut di antara keduanya.
+Sudut inilah yang menentukan tanda.
+Jika gaya searah gerak, usahanya positif: energi masuk, dan benda makin cepat.
+Jika gaya tegak lurus gerak, usahanya nol: gaya itu ada, tetapi tidak ada energi yang berpindah.
+Jika gaya melawan gerak, seperti gesekan, usahanya negatif: energi diambil dari benda.
+Itulah sebabnya memegang tas berat sambil berdiri diam tidak melakukan usaha pada tas, walaupun tanganmu pegal.
+Tasnya tidak berpindah, jadi tidak ada energi yang masuk ke tas. Pegalnya berasal dari otot yang terus berkontraksi di dalam tubuhmu.
+
+[04:29] Bab 03 — Contoh: usaha setiap gaya
+
+Mari berhitung. Koper sepuluh kilogram ditarik sejauh dua puluh meter dengan gaya enam puluh newton, membentuk sudut enam puluh derajat.
+Gesekan lantai sebesar dua belas newton melawan gerak.
+Usaha tarikan: enam puluh, kali dua puluh, kali kosinus enam puluh derajat, yaitu setengah. Hasilnya enam ratus joule.
+Usaha gesekan: minus dua belas kali dua puluh, yaitu minus dua ratus empat puluh joule.
+Berat koper dan gaya normal lantai tegak lurus gerak, jadi usahanya nol.
+Usaha total adalah jumlah semuanya: tiga ratus enam puluh joule.
+Perhatikan: tarikan menyumbang enam ratus joule, tetapi koper hanya menerima tiga ratus enam puluh. Sisanya diambil gesekan.
+Usaha total inilah yang menentukan perubahan kelajuan koper. Ingat angka ini.
+
+[05:30] Bab 04 — Gaya berubah: usaha adalah luas
+
+Rumus F kali s hanya berlaku bila gayanya tetap. Bagaimana jika gaya berubah sepanjang jalan?
+Triknya: potong perjalanan menjadi langkah-langkah yang sangat kecil.
+Pada setiap langkah sekecil d x, gaya hampir tidak sempat berubah, jadi usahanya F kali d x.
+Di grafik gaya terhadap posisi, F kali d x adalah luas sebuah pita tipis.
+Jumlahkan semua pita, dan kita mendapat luas di bawah kurva. Penjumlahan inilah yang disebut integral.
+Jadi usaha sama dengan integral F d x, yaitu luas di bawah grafik gaya terhadap posisi.
+Luasnya bertanda: bagian di atas sumbu bernilai positif, bagian di bawah sumbu bernilai negatif.
+Pada grafik ini: persegi panjang empat puluh joule, segitiga dua puluh joule, dikurangi segitiga sepuluh joule. Totalnya lima puluh joule.
+Satu jebakan: sumbu mendatar harus posisi, bukan waktu. Luas grafik gaya terhadap waktu bukan usaha, melainkan impuls.
+
+[06:42] Bab 05 — Energi kinetik: mengapa kuadrat?
+
+Sekarang pertanyaan besarnya: ke mana perginya usaha total itu?
+Dorong sebuah troli dengan gaya total tetap F sejauh s. Menurut Newton, troli dipercepat sebesar F per m.
+Dari kinematika, v akhir kuadrat dikurangi v awal kuadrat sama dengan dua a s.
+Kalikan kedua ruas dengan setengah m.
+Ruas kanan menjadi m a s, yaitu F kali s, usaha total. Ruas kiri menjadi selisih setengah m v kuadrat.
+Besaran setengah m v kuadrat inilah energi kinetik, energi yang dimiliki benda karena bergerak.
+Hasilnya disebut teorema usaha dan energi: usaha total sama dengan perubahan energi kinetik.
+Kembali ke koper tadi: tiga ratus enam puluh joule masuk sebagai energi kinetik, sehingga koper yang awalnya diam melaju sekitar delapan koma lima meter per detik.
+Yang paling penting adalah kuadratnya. Kelajuan dua kali lipat berarti energi kinetik empat kali lipat.
+Lihat dua mobil identik bermassa satu ton, direm dengan gaya hambat yang sama, lima ribu newton.
+Mobil yang melaju dua puluh meter per detik berhenti setelah empat puluh meter.
+Mobil yang melaju empat puluh meter per detik, dua kali lebih cepat, butuh seratus enam puluh meter. Empat kali lebih jauh.
+Rem harus menghabiskan energi kinetik, dan energi itu tumbuh menurut kuadrat kelajuan.
+
+[08:21] Bab 06 — Gaya konservatif & energi potensial
+
+Sekarang pindahkan sebuah kotak dari lantai ke rak lewat tiga jalan berbeda: tangga, bidang miring, dan lintasan berkelok.
+Hitung usaha gaya gravitasi pada setiap jalan. Hasilnya selalu sama: minus m g h.
+Gravitasi hanya peduli pada beda ketinggian, bukan pada panjang jalannya.
+Gaya seperti ini disebut gaya konservatif. Gravitasi dan pegas ideal termasuk di dalamnya.
+Bandingkan dengan gesekan: makin panjang jalan yang digeser, makin banyak energi yang terambil. Gesekan bukan gaya konservatif.
+Karena usaha gaya konservatif hanya bergantung pada posisi awal dan akhir, kita bisa mencatatnya sebagai energi yang tersimpan dalam posisi.
+Inilah energi potensial, U, yang didefinisikan agar usaha gaya konservatif sama dengan minus perubahan U.
+Tanda minus itu bermakna: jika gravitasi melakukan usaha positif, misalnya saat benda jatuh, energi potensialnya berkurang.
+Energi potensial seperti tabungan: tidak terlihat sebagai gerak, tetapi siap dicairkan kapan saja.
+Titik nolnya pun boleh kita pilih sendiri. Yang bermakna secara fisika hanyalah perubahannya.
+
+[09:45] Bab 07 — Energi potensial gravitasi
+
+Dekat permukaan Bumi, energi potensial gravitasi sama dengan m g y, dengan y ketinggian dari titik nol yang kita pilih.
+Lempar sebuah bola lurus ke atas dengan kelajuan dua puluh meter per detik.
+Perhatikan dua batang energi ini: jingga untuk energi kinetik, biru untuk energi potensial.
+Saat bola naik, batang jingga menyusut dan batang biru tumbuh. Jumlahnya tidak berubah.
+Di puncak, bola berhenti sesaat. Seluruh energi kinetiknya sudah menjadi energi potensial.
+Setengah v kuadrat sama dengan g kali h, jadi tinggi maksimumnya dua puluh kuadrat dibagi dua puluh: dua puluh meter.
+Pada ketinggian lima belas meter, sisa energi kinetiknya cukup untuk kelajuan sepuluh meter per detik.
+Kelajuan itu sama saat bola naik maupun turun. Energi memberi tahu seberapa cepat, tetapi tidak memberi tahu ke arah mana.
+
+[10:51] Bab 08 — Pegas: energi yang ditabung
+
+Jenis tabungan kedua tersimpan di dalam pegas.
+Hukum Hooke: gaya pegas sama dengan minus k kali x, dengan x simpangan dari panjang alaminya.
+Tanda minus berarti pegas selalu melawan: ditarik, ia menarik balik; ditekan, ia mendorong balik.
+Untuk menekan pegas, gaya yang diperlukan naik perlahan dari nol sampai k x. Grafiknya berupa garis lurus.
+Usahanya adalah luas segitiga di bawah garis itu: setengah, kali x, kali k x.
+Jadi energi potensial pegas adalah setengah k x kuadrat. Faktor setengah muncul karena gayanya mulai dari nol.
+Sebuah balok dua kilogram meluncur empat meter per detik di lantai licin, lalu menabrak pegas dengan konstanta dua ratus newton per meter.
+Energi kinetiknya enam belas joule. Saat pegas tertekan maksimum, balok berhenti sesaat dan seluruh enam belas joule pindah ke pegas.
+Setengah kali dua ratus kali x kuadrat sama dengan enam belas, sehingga x sama dengan nol koma empat meter.
+Uniknya, pada setengah tekanan itu, pegas baru menyimpan seperempat energi, bukan setengahnya.
+Dan meskipun balok berhenti, ia tidak setimbang. Pegas sedang mendorong delapan puluh newton, sehingga balok segera terlempar balik.
+
+[12:21] Bab 09 — Kekekalan energi mekanik
+
+Sekarang kita punya semua pemain: energi kinetik, energi potensial gravitasi, dan energi potensial pegas.
+Jumlah energi kinetik dan energi potensial disebut energi mekanik.
+Jika hanya gaya konservatif yang melakukan usaha, energi mekanik tetap: K awal tambah U awal sama dengan K akhir tambah U akhir.
+Lihat pemain papan luncur di lintasan setengah pipa yang licin sempurna.
+Di dasar, ia paling cepat. Di tepi, ia berhenti sesaat. Tetapi batang total energinya tidak pernah bergoyang.
+Ia tidak akan pernah melewati ketinggian awalnya, kecuali ada yang menambah energi, misalnya hentakan kakinya sendiri.
+Sekarang kembali ke bola boling tadi.
+Bola dilepas dari ujung hidung tanpa dorongan. Energinya tidak cukup untuk naik lebih tinggi dari titik awalnya.
+Bahkan sebagian kecil energinya diambil hambatan udara, jadi bola selalu kembali sedikit lebih rendah. Hidung pun selamat.
+Tetapi jika bola didorong saat dilepas, energi tambahan itu akan kembali, tepat ke wajahnya.
+
+[13:39] Bab 10 — Gesekan: energi tidak hilang
+
+Di dunia nyata, lantai selalu punya gesekan. Apakah energi mekanik lalu hilang begitu saja?
+Gosok kedua telapak tanganmu. Terasa hangat.
+Energi gerak tanganmu tidak lenyap. Ia berpindah menjadi energi termal: atom-atom di permukaan kulit bergetar lebih hebat.
+Jadi kita perlu menambahkan satu suku ke neraca: usaha gaya lain, termasuk gesekan.
+K awal tambah U awal tambah W lain sama dengan K akhir tambah U akhir. Inilah neraca energi yang paling serbaguna.
+Contoh: balok dua kilogram meluncur dari diam menuruni bidang miring tiga puluh derajat sejauh lima meter, dengan koefisien gesek kinetik nol koma dua.
+Awalnya balok menyimpan energi potensial lima puluh joule, karena ia akan turun setinggi dua koma lima meter.
+Gaya normalnya m g kosinus tiga puluh derajat, sekitar tujuh belas koma tiga newton, sehingga gaya geseknya sekitar tiga koma lima newton.
+Sepanjang lima meter, gesekan mengubah sekitar tujuh belas koma tiga joule menjadi panas.
+Sisanya, tiga puluh dua koma tujuh joule, menjadi energi kinetik. Balok tiba di bawah dengan kelajuan sekitar lima koma tujuh meter per detik.
+Lima puluh joule masuk, lima puluh joule keluar, hanya berganti wujud. Energi tidak hilang, hanya berpindah ke tempat yang sulit diambil kembali.
+
+[15:17] Bab 11 — Daya: seberapa cepat energi berpindah
+
+Dua orang bermassa sama menaiki tangga yang sama. Satu berjalan santai, satu berlari.
+Keduanya menaikkan energi potensial yang sama besar. Usaha mereka sama.
+Bedanya ada pada waktu. Yang berlari memindahkan energi lebih cepat.
+Laju perpindahan energi inilah yang disebut daya: usaha dibagi waktu. Satuannya watt, yaitu joule per detik.
+Untuk gaya yang searah gerak, daya juga sama dengan gaya kali kecepatan.
+Contoh: sebuah motor mengangkat beban dua ratus kilogram setinggi dua belas meter dalam lima belas detik.
+Energi bergunanya m g h, dua puluh empat ribu joule. Dibagi lima belas detik, dayanya seribu enam ratus watt.
+Tetapi tidak ada mesin yang sempurna. Jika efisiensi motor delapan puluh persen, daya yang masuk harus dua ribu watt.
+Efisiensi adalah perbandingan energi berguna terhadap energi yang masuk. Sisanya menjadi panas di kumparan dan bantalan motor.
+Satu hal yang sering tertukar: kilowatt jam bukan satuan daya, melainkan energi. Satu kilowatt jam sama dengan tiga koma enam juta joule.
+
+[16:39] Bab 12 — Cara berpikir: memecahkan soal energi
+
+Bagaimana memakai semua ini untuk memecahkan soal? Kuncinya bukan menghafal rumus, melainkan urutan berpikir.
+Langkah satu: gambar keadaan awal dan keadaan akhir.
+Langkah dua: tentukan sistem dan titik nol energi potensial.
+Langkah tiga: daftar energi di kedua keadaan, lalu coret yang nol karena alasan fisik, bukan karena hafalan.
+Langkah empat: tulis neraca energi dengan simbol dulu, baru masukkan angka.
+Langkah lima: periksa apakah jawabannya masuk akal.
+Coba soal ini: benda satu kilogram dijatuhkan dari ketinggian satu koma dua meter di atas pegas tegak dengan konstanta dua ratus newton per meter. Berapa tekanan maksimum pegas?
+Jebakannya: setelah menyentuh pegas, benda masih terus turun sejauh x. Jadi penurunan totalnya satu koma dua tambah x, bukan satu koma dua saja.
+Pilih titik nol di titik terendah. Di awal dan di titik terendah, benda sama-sama diam, jadi energi kinetiknya nol di kedua keadaan.
+Maka m g kali h tambah x, sama dengan setengah k x kuadrat.
+Dengan angka: sepuluh kali satu koma dua tambah x, sama dengan seratus x kuadrat. Akar positifnya, x sama dengan nol koma empat meter.
+Periksa: di titik itu gaya pegas delapan puluh newton, jauh lebih besar dari berat sepuluh newton. Masuk akal, benda akan terpantul ke atas.
+
+[18:19] Bab 13 — Ikatan kimia: pegas & sumur energi
+
+Sebagai mahasiswa kimia, di mana kita bertemu usaha dan energi? Ternyata di setiap ikatan kimia.
+Dua atom yang berikatan berperilaku seperti dua bola yang dihubungkan pegas.
+Didekatkan terlalu rapat, keduanya saling tolak. Dijauhkan, keduanya saling tarik. Ada satu jarak paling nyaman: panjang ikatan.
+Grafik energi potensial terhadap jarak antaratom berbentuk seperti sumur.
+Di dasar sumur, lengkungnya hampir persis parabola setengah k x kuadrat, sama seperti pegas tadi.
+Ikatan H Cl, misalnya, punya konstanta pegas sekitar lima ratus enam belas newton per meter. Getaran pegas inilah yang dibaca spektroskopi inframerah.
+Kedalaman sumur adalah energi ikatan. Untuk memutus ikatan H H, diperlukan sekitar empat ratus tiga puluh enam kilojoule per mol.
+Artinya, memutus ikatan selalu butuh energi. Sebaliknya, membentuk ikatan selalu melepaskan energi.
+Ini meluruskan salah kaprah yang umum: energi tidak tersimpan di dalam ikatan seperti bensin di tangki. Energi dilepaskan ketika ikatan yang lebih kuat terbentuk.
+
+[19:41] Bab 14 — Panas adalah gerak molekul
+
+Lalu apa sebenarnya energi termal, tempat energi gesekan tadi menghilang?
+Pada tahun seribu delapan ratus empat puluhan, James Joule menjatuhkan beban yang memutar kincir di dalam air.
+Air menjadi sedikit lebih hangat. Energi potensial beban berubah menjadi panas.
+Ia menemukan bahwa sekitar empat koma dua joule usaha selalu menghasilkan kenaikan suhu yang sama dengan satu kalori panas.
+Hari ini kita tahu alasannya: panas adalah energi kinetik molekul yang bergerak acak.
+Energi kinetik rata-rata satu molekul gas sama dengan tiga per dua k T, dengan k tetapan Boltzmann. Makin tinggi suhu, makin cepat molekul berlari.
+Pada suhu kamar, molekul nitrogen di udara melesat dengan kelajuan sekitar lima ratus meter per detik.
+Jadi energi gesekan tadi tidak hilang. Ia menjadi energi kinetik juga, hanya saja tersebar acak ke triliunan molekul.
+
+[20:48] Bab 15 — Bukit energi reaksi
+
+Gabungkan semuanya, dan kita bisa membaca diagram energi reaksi seperti lintasan roller coaster.
+Reaktan berada di sebuah lembah. Produk berada di lembah yang lain.
+Di antara keduanya ada bukit: energi aktivasi. Molekul harus bertabrakan cukup keras untuk mendaki bukit ini.
+Sama seperti kereta roller coaster yang tidak bisa melewati bukit yang lebih tinggi dari energinya.
+Jika lembah produk lebih rendah, selisih energinya dilepas sebagai panas. Reaksinya eksoterm.
+Menaikkan suhu berarti memberi molekul lebih banyak energi kinetik, sehingga lebih banyak tabrakan yang berhasil melewati bukit.
+Katalis tidak menambah energi. Ia membuka jalan pintas dengan bukit yang lebih rendah.
+Neraca energinya sama, dari bola boling sampai molekul.
+
+[21:47] Bab 16 — Pembangkit listrik tenaga air
+
+Bendungan adalah tabungan energi potensial raksasa.
+Air di waduk berada jauh di atas turbin. Saat dialirkan turun, energi potensialnya berubah menjadi energi kinetik aliran yang memutar turbin.
+Setiap detik, massa air yang turun sama dengan massa jenis kali debit. Maka daya yang tersedia sama dengan rho g Q h.
+Misalnya debit seratus meter kubik per detik, dengan tinggi jatuh seratus meter.
+Dayanya sekitar seratus megawatt. Dengan efisiensi turbin dan generator sembilan puluh persen, sekitar sembilan puluh megawatt sampai ke jaringan listrik.
+Itulah sebabnya PLTA dibangun di lembah yang dalam: tinggi jatuh yang besar berarti energi yang besar untuk setiap liter air.
+
+[22:39] Bab 17 — Rem, jalan raya & mobil listrik
+
+Ingat, jarak pengereman sebanding dengan kuadrat kelajuan.
+Di jalan raya, pengemudi juga butuh waktu reaksi, kira-kira satu detik, sebelum kakinya menginjak rem.
+Selama itu, mobil masih melaju dengan kelajuan penuh.
+Pada enam puluh kilometer per jam, jarak hentinya sekitar tiga puluh enam meter. Pada seratus kilometer per jam, sekitar delapan puluh tiga meter.
+Kelajuan naik kurang dari dua kali, tetapi jarak berhenti lebih dari dua kali lipat.
+Rem biasa mengubah energi kinetik mobil menjadi panas di cakram rem. Energi itu terbuang ke udara.
+Mobil listrik memakai rem regeneratif: motornya dibalik menjadi generator, dan sebagian energi kinetik dikembalikan ke baterai.
+Neraca energinya sama, tetapi kini sebagian energi berpindah ke tempat yang bisa dipakai lagi.
+
+[23:41] Bab 18 — Energi di rumah & di tubuh
+
+Tagihan listrik di rumah dihitung dalam kilowatt jam, karena yang dijual adalah energi, bukan daya.
+Setrika seribu watt yang menyala dua jam menghabiskan dua kilowatt jam, atau sekitar tujuh koma dua juta joule.
+Dengan energi sebesar itu, secara teori kita bisa mengangkat orang bermassa tujuh puluh kilogram setinggi lebih dari sepuluh kilometer.
+Tubuh kita pun sebuah mesin. Berlari menaiki tangga setinggi tiga meter dalam tiga detik, orang tujuh puluh kilogram menghasilkan daya sekitar tujuh ratus watt.
+Tetapi efisiensi otot hanya sekitar seperempat. Sisanya menjadi panas, itulah sebabnya tubuh berkeringat saat berolahraga.
+Dan satu kalori pada label makanan sebenarnya satu kilokalori, yaitu sekitar empat ribu seratus delapan puluh empat joule.
+
+[24:41] Bab 19 — Rangkuman
+
+Mari rangkum perjalanan kita.
+Energi adalah angka yang tetap ketika semua bentuknya dijumlahkan.
+Usaha adalah cara gaya memindahkan energi: F s kosinus theta, atau luas di bawah grafik gaya terhadap posisi.
+Usaha total mengubah energi kinetik, setengah m v kuadrat.
+Gaya konservatif menabung energi sebagai energi potensial: m g y untuk gravitasi, setengah k x kuadrat untuk pegas.
+Gesekan tidak menghapus energi, hanya mengubahnya menjadi panas, yaitu gerak acak molekul.
+Dan daya adalah seberapa cepat semua itu terjadi.
+Jadi setiap kali menghadapi soal, tanyakan dua hal: dari mana energinya datang, dan ke mana ia pergi?

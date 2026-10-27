@@ -57,7 +57,7 @@ export const Hydro: React.FC = () => {
 
   const cardA = win(t, cue(2) + 1.0, cue(4) - 0.2, 0.7, 0.5);
   const cardB = win(t, cue(4) + 0.2, mix(cue(4), cueEnd(4), 0.45), 0.7, 0.5);
-  const cardC = ramp(t, mix(cue(4), cueEnd(4), 0.45) + 0.6, mix(cue(4), cueEnd(4), 0.45) + 1.4);
+  const cardC = ramp(t, mix(cue(4), cueEnd(4), 0.45) + 0.45, mix(cue(4), cueEnd(4), 0.45) + 1.2);
   const slab = win(t, cue(2) + 0.4, cue(3), 0.6, 0.6);
   const note1 = win(t, cue(3) + 0.3, cue(5) - 0.2, 0.6, 0.5);
   const note2 = ramp(t, cue(5) + 0.4, cue(5) + 1.2);
@@ -206,13 +206,13 @@ export const Hydro: React.FC = () => {
           <TSub>el</TSub> = energi listrik
         </Label>
       </Stage>
-      <Formula x={1600} y={300} p={cardA} accent={C.pot} size={66} caption="daya = energi tiap detik">
+      <Formula x={1560} y={300} p={cardA} accent={C.pot} size={66} caption="daya = energi tiap detik">
         <V>P</V> = <V>ρ g Q h</V>
       </Formula>
-      <Formula x={1600} y={300} p={cardB} accent={C.pot} size={56} caption="1000 · 10 · 100 · 100 watt">
+      <Formula x={1560} y={300} p={cardB} accent={C.pot} size={56} caption="1000 · 10 · 100 · 100 watt">
         <V>P</V> ≈ 10<sup style={{fontSize: '0.6em'}}>8</sup> W = 100 MW
       </Formula>
-      <Formula x={1600} y={300} p={cardC} accent={C.gold} size={56} caption="efisiensi turbin + generator 90 %">
+      <Formula x={1560} y={300} p={cardC} accent={C.gold} size={56} caption="efisiensi turbin + generator 90 %">
         <V>P</V>
         <Sub>listrik</Sub> ≈ 90 MW
       </Formula>
