@@ -423,7 +423,7 @@ export const Ripple: React.FC<{x: number; y: number; p: number; r?: number; colo
       {Array.from({length: rings}, (_, i) => {
         const q = p * 1.35 - i * 0.17;
         if (q <= 0 || q >= 1) return null;
-        return <circle key={i} cx={x} cy={y} r={r * q} fill="none" stroke={hue(color)} strokeWidth={width * (1 - q) + 0.5} opacity={(1 - q) * 0.85} />;
+        return <circle key={i} cx={x} cy={y} r={r * q} fill="none" stroke={hue(color)} strokeWidth={width * (1 - q) + 0.5} opacity={Math.min(1, q * 6) * (1 - q) * 0.85} />;
       })}
       <circle cx={x} cy={y} r={r * 0.4} fill={`url(#soft-${color})`} opacity={Math.sin(Math.PI * p)} />
     </g>
