@@ -1,0 +1,44 @@
+name: Cek pengucapan narasi (Whisper)
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: 'Model Whisper (small cepat, medium lebih teliti)'
+        type: choice
+        options: ['small', 'medium']
+        default: 'small'
+permissions:
+  contents: read
+jobs:
+  cek:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install ffmpeg & faster-whisper
+        run: |
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+          python3 -m pip install faster-whisper numpy
+      - run: npm ci
+      - name: Siapkan teks TTS
+        run: npm run timeline
+      - name: Transkripsi & bandingkan
+        run: python3 scripts/cek-pengucapan.py
+        env:
+          WHISPER_MODEL: ${{ inputs.model }}
+      - name: Ringkasan
+        if: always()
+        run: |
+          if [ -f naskah/CEK_PENGUCAPAN.md ]; then cat naskah/CEK_PENGUCAPAN.md >> "$GITHUB_STEP_SUMMARY"; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cek-pengucapan-${{ inputs.model }}
+          path: naskah/CEK_PENGUCAPAN.md
+          retention-days: 14

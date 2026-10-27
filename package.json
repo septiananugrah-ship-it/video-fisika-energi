@@ -1,0 +1,40 @@
+{
+  "name": "video-fisika-energi",
+  "version": "1.0.0",
+  "description": "Mata Uang Semesta — film edukasi Fisika Umum: Usaha dan Energi (Remotion) · SCIENTIAN",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "lint": "tsc --noEmit",
+    "music": "python3 scripts/make-music.py",
+    "timeline": "node --experimental-strip-types scripts/export-timeline.ts",
+    "voiceover": "node --experimental-strip-types scripts/generate-voiceover.ts",
+    "render": "remotion render src/index.ts UsahaEnergi out/usaha-energi.mp4 --codec=h264 --crf=18",
+    "render:preview": "remotion render src/index.ts UsahaEnergi out/preview-540p.mp4 --codec=h264 --crf=26 --scale=0.5",
+    "check": "node --experimental-strip-types scripts/check-cues.ts"
+  },
+  "dependencies": {
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fontsource/source-serif-4": "5.3.1",
+    "@fontsource/space-grotesk": "5.3.0",
+    "@remotion/cli": "4.0.536",
+    "@remotion/media": "4.0.536",
+    "@remotion/media-utils": "4.0.536",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.536"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.536",
+    "@remotion/renderer": "4.0.536",
+    "@types/react": "19.2.7",
+    "typescript": "5.9.3"
+  }
+}
