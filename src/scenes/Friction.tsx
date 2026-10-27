@@ -11,9 +11,9 @@ import {C, FONT} from '../theme';
 // Neraca: Ug = 50 − 10 s, E_th = 3,464 s, K = 6,536 s (s dalam m) → di bawah: 32,68 J + 17,32 J.
 const PXM = 130;
 const ANG = Math.PI / 6;
-const A = {x: 170, y: 300};
+const A = {x: 230, y: 300};
 const LEN = 6; // m lintasan yang digambar
-const S0 = 0.45; // posisi awal balok di lintasan (m)
+const S0 = 0.6; // posisi awal balok di lintasan (m)
 const B = {x: A.x + LEN * PXM * Math.cos(ANG), y: A.y + LEN * PXM * Math.sin(ANG)};
 const ACC = 10 * (0.5 - 0.2 * Math.cos(ANG));
 const onSlope = (s: number) => ({x: A.x + s * PXM * Math.cos(ANG), y: A.y + s * PXM * Math.sin(ANG)});
@@ -148,11 +148,11 @@ export const Friction: React.FC = () => {
           <g opacity={hDim}>
             <Arrow x1={bottom.x + 40} y1={top.y - 10} x2={bottom.x + 40} y2={bottom.y - 10} color="pot" width={4} both />
             <line x1={top.x} y1={top.y - 10} x2={bottom.x + 50} y2={top.y - 10} stroke={C.pot} strokeOpacity={0.5} strokeWidth={2} strokeDasharray="6 8" />
-            <Label x={bottom.x + 62} y={(top.y + bottom.y) / 2} size={28} font="serif" italic color={C.pot} anchor="start">
+            <Label x={bottom.x + 24} y={(top.y + bottom.y) / 2} size={28} font="serif" italic color={C.pot} anchor="end">
               h = 2,5 m
             </Label>
           </g>
-          <Label x={(top.x + bottom.x) / 2 + 40} y={(top.y + bottom.y) / 2 - 70} size={24} font="mono" color={C.muted} opacity={ramp(t, cue(5) + 1, cue(5) + 1.6)}>
+          <Label x={(top.x + bottom.x) / 2 - 120} y={(top.y + bottom.y) / 2 - 30} size={24} font="mono" color={C.muted} opacity={ramp(t, cue(5) + 1, cue(5) + 1.6)}>
             s = 5 m · μk = 0,2
           </Label>
           <Crate x={blk.x} y={blk.y} w={92} h={70} label="2 kg" color={C.kin} rot={30} />
@@ -166,13 +166,13 @@ export const Friction: React.FC = () => {
             <Label x={blk.x + 140 * uy + 20} y={blk.y - 140 * ux} size={26} color={C.cyan} anchor="start" font="serif" italic>
               N
             </Label>
-            <Arrow x1={blk.x - 50 * ux} y1={blk.y - 50 * uy - 6} x2={blk.x - 130 * ux} y2={blk.y - 130 * uy - 6} color="heat" width={5} />
-            <Label x={blk.x - 150 * ux} y={blk.y - 150 * uy - 40} size={26} color={C.heat} font="serif" italic>
+            <Arrow x1={blk.x - 50 * ux} y1={blk.y - 50 * uy - 6} x2={blk.x - 115 * ux} y2={blk.y - 115 * uy - 6} color="heat" width={5} />
+            <Label x={blk.x - 112 * ux} y={blk.y - 112 * uy - 40} size={26} color={C.heat} font="serif" italic>
               f
             </Label>
           </g>
           <g opacity={ramp(t, cue(8) + 0.4, cue(8) + 0.9)}>
-            <Label x={blk.x + 70} y={blk.y - 90} size={24} font="mono" color={C.kin} anchor="start" weight={600}>
+            <Label x={560} y={250} size={30} font="mono" color={C.kin} weight={600}>
               {`v = ${fmt(v, 1)} m/s`}
             </Label>
           </g>

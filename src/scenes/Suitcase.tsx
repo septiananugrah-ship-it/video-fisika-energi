@@ -99,12 +99,12 @@ export const Suitcase: React.FC = () => {
           </Label>
         </g>
         <g opacity={gn}>
-          <Arrow x1={x + 30} y1={FLOOR - 60} x2={x + 30} y2={FLOOR + 22} color="muted" width={5} />
+          <Arrow x1={x + 58} y1={FLOOR - 60} x2={x + 58} y2={FLOOR + 22} color="muted" width={5} />
           <Label x={x + 96} y={FLOOR - 24} size={26} font="serif" italic color={C.muted} anchor="start">
             mg
           </Label>
-          <Arrow x1={x - 30} y1={FLOOR - 60} x2={x - 30} y2={FLOOR - 190} color="muted" width={5} />
-          <Label x={x - 54} y={FLOOR - 190} size={26} font="serif" italic color={C.muted} anchor="end">
+          <Arrow x1={x - 58} y1={FLOOR - 60} x2={x - 58} y2={FLOOR - 190} color="muted" width={5} />
+          <Label x={x - 80} y={FLOOR - 180} size={26} font="serif" italic color={C.muted} anchor="end">
             N
           </Label>
           <Label x={x - 70} y={FLOOR - 230} size={24} color={C.muted} anchor="end">
