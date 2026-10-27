@@ -47,7 +47,7 @@ const Hi: React.FC<{p: number; c: string; children: React.ReactNode}> = ({p, c, 
         display: 'inline-block',
         padding: '0 0.1em',
         borderRadius: 10,
-        backgroundImage: `linear-gradient(90deg, ${c}40 0%, ${c}40 ${q}%, transparent ${q}%)`,
+        backgroundImage: `linear-gradient(90deg, ${c}66 0%, ${c}66 ${q}%, transparent ${q}%)`,
       }}
     >
       {children}
