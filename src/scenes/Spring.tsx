@@ -16,7 +16,7 @@ const BW = 140;
 const BH = 110;
 const K_SPR = 200;
 const OMEGA = 10;
-const V = 4;
+const V0 = 4;
 const AX: Axes = {x0: 1130, y0: 720, w: 560, h: 380, xmax: 0.5, ymax: 100};
 
 export const Spring: React.FC = () => {
@@ -50,15 +50,15 @@ export const Spring: React.FC = () => {
   let c2 = 0;
   let vel: number; // m/s, + ke kanan
   if (tau < 0) {
-    xL = XN + -tau * V * PXM;
-    vel = -V;
+    xL = XN + -tau * V0 * PXM;
+    vel = -V0;
   } else if (tau <= Math.PI / OMEGA) {
-    c2 = (V / OMEGA) * Math.sin(OMEGA * tau);
+    c2 = (V0 / OMEGA) * Math.sin(OMEGA * tau);
     xL = XN - c2 * PXM;
-    vel = -V * Math.cos(OMEGA * tau);
+    vel = -V0 * Math.cos(OMEGA * tau);
   } else {
-    xL = XN + (tau - Math.PI / OMEGA) * V * PXM;
-    vel = V;
+    xL = XN + (tau - Math.PI / OMEGA) * V0 * PXM;
+    vel = V0;
   }
   const K2 = 0.5 * 2 * vel * vel;
   const U2 = 0.5 * K_SPR * c2 * c2;
@@ -85,8 +85,8 @@ export const Spring: React.FC = () => {
         ))}
         <Ground x1={WALL - 40} x2={1020} y={FLOOR} />
         {/* panjang alami */}
-        <line x1={XN} y1={FLOOR + 10} x2={XN} y2={FLOOR - BH - 50} stroke={C.muted} strokeWidth={2} strokeDasharray="6 8" opacity={ramp(t, cue(1), cue(1) + 0.6)} />
-        <Label x={XN} y={FLOOR - BH - 72} size={22} color={C.muted} opacity={ramp(t, cue(1), cue(1) + 0.6)}>
+        <line x1={XN} y1={FLOOR + 10} x2={XN} y2={FLOOR - BH - 100} stroke={C.muted} strokeWidth={2} strokeDasharray="6 8" opacity={ramp(t, cue(1), cue(1) + 0.6)} />
+        <Label x={XN} y={FLOOR - BH - 122} size={22} color={C.muted} opacity={ramp(t, cue(1), cue(1) + 0.6)}>
           panjang alami
         </Label>
 
@@ -140,8 +140,8 @@ export const Spring: React.FC = () => {
               x = 0,20 m
             </Label>
           </g>
-          <Crate x={xL + BW / 2} y={FLOOR} w={BW} h={BH} label="2 kg" color={C.kin} />
-          <g opacity={moving * (1 - halfGhost)}>
+          <Crate x={xL + BW / 2} y={FLOOR} w={BW} h={BH} label="2 kg" color={C.kin} opacity={1 - ramp(xL, 880, 990, (x) => x)} />
+          <g opacity={moving * (1 - halfGhost) * (1 - ramp(xL, 860, 960, (x) => x))}>
             <Arrow x1={xL + BW / 2} y1={FLOOR - BH - 30} x2={xL + BW / 2 + vel * 30} y2={FLOOR - BH - 30} color="kin" width={6} />
             <Label x={xL + BW / 2 + vel * 15} y={FLOOR - BH - 62} size={24} font="mono" color={C.kin} weight={600}>
               {`${fmt(Math.abs(vel), 1)} m/s`}

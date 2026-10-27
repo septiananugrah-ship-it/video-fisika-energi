@@ -83,13 +83,14 @@ export const Gravity: React.FC = () => {
           <circle key={s} cx={BX} cy={GROUND - yOf(s) * PXM - 26} r={4} fill={vOf(s) >= 0 ? C.kin : C.cyan} opacity={0.35} />
         ))}
         <Glow x={BX} y={by} r={120} color="kin" opacity={(K / 200) * ballIn} />
-        {/* bayangan bola saat naik di 15 m */}
+        {/* bayangan bola di 15 m: naik (kanan) dan turun (tengah) */}
         <g opacity={upGhost}>
-          <circle cx={BX - 120} cy={y15} r={26} fill="none" stroke={C.kin} strokeWidth={3} strokeDasharray="6 6" />
-          <Arrow x1={BX - 120} y1={y15 - 34} x2={BX - 120} y2={y15 - 34 - 100} color="kin" width={5} />
-          <Label x={BX - 150} y={y15 - 100} size={26} font="mono" color={C.kin} anchor="end" weight={600}>
-            10 m/s ↑
+          <circle cx={BX + 130} cy={y15} r={26} fill="none" stroke={C.kin} strokeWidth={3} strokeDasharray="6 6" />
+          <Arrow x1={BX + 130} y1={y15 - 34} x2={BX + 130} y2={y15 - 34 - 90} color="kin" width={5} />
+          <Label x={BX + 156} y={y15 - 90} size={26} font="mono" color={C.kin} anchor="start" weight={600}>
+            10 m/s
           </Label>
+          <circle cx={BX} cy={y15} r={26} fill="none" stroke={C.cyan} strokeWidth={3} strokeDasharray="6 6" opacity={ramp(t, cue(7) + 2.8, cue(7) + 3.3)} />
         </g>
         <Ball x={BX} y={by} r={26} opacity={ballIn} />
         {/* panah kecepatan bola */}
@@ -103,8 +104,9 @@ export const Gravity: React.FC = () => {
           </Label>
         </g>
         <g opacity={at15}>
-          <Label x={BX + 70} y={y15 + 2} size={26} font="mono" color={C.gold} anchor="start" weight={600} opacity={upGhost}>
-            10 m/s ↓
+          <Arrow x1={BX - 60} y1={y15 - 50} x2={BX - 60} y2={y15 + 50} color="cyan" width={5} opacity={upGhost} />
+          <Label x={BX - 84} y={y15 + 10} size={26} font="mono" color={C.cyan} anchor="end" weight={600} opacity={upGhost}>
+            10 m/s
           </Label>
         </g>
         <Label x={990} y={GROUND - 15 * PXM - 24} size={24} color={C.gold} anchor="end" weight={600} opacity={at15}>

@@ -10,11 +10,9 @@ import {C} from '../theme';
 // Satu "paket" air 1 kg dilacak; batang energinya per kg (g = 10 m/s², h = 100 m → 1000 J/kg).
 const SURF = 330; // permukaan waduk
 const TURB = {x: 985, y: 760}; // turbin
-const HPX = TURB.y - SURF; // 430 px ≙ 100 m
 const P0 = {x: 612, y: 382}; // mulut pipa (intake)
 const P1 = {x: TURB.x - 18, y: TURB.y - 14};
-const PIPE_LEN = Math.hypot(P1.x - P0.x, P1.y - P0.y);
-const hOf = (y: number) => ((TURB.y - y) / HPX) * 100; // meter di atas turbin
+const hOf = (y: number) => ((P1.y - y) / (P1.y - SURF)) * 100; // meter di atas turbin (h = 100 m dari permukaan)
 
 /** Sudut putar untuk laju sudut yang naik linear dari 0 (t1) ke w (t2), lalu tetap. */
 const spinAngle = (t: number, t1: number, t2: number, w: number) => {
@@ -41,7 +39,7 @@ export const Hydro: React.FC = () => {
   if (t < tIntake) {
     const q = ramp(t, tStart, tIntake, EASE_IN_OUT);
     px = mix(560, P0.x, q);
-    py = mix(SURF + 8, P0.y, q);
+    py = mix(SURF, P0.y, q);
   } else {
     // percepatan tetap di pipa miring licin: u = (τ/T)²
     const u = Math.min(1, ((t - tIntake) / T_PIPE) ** 2);
@@ -118,9 +116,11 @@ export const Hydro: React.FC = () => {
         {pipeDrops.map((d, i) => (
           <circle key={i} cx={d.x} cy={d.y} r={d.r} fill="#cfe7ff" opacity={d.o} />
         ))}
-        <Label x={850} y={560} size={24} color={C.muted} anchor="start">
-          pipa pesat
-        </Label>
+        <g transform={`translate(${(P0.x + P1.x) / 2 - 29} ${(P0.y + P1.y) / 2 + 28}) rotate(${(Math.atan2(P1.y - P0.y, P1.x - P0.x) * 180) / Math.PI})`}>
+          <Label x={0} y={0} size={24} color={C.muted}>
+            pipa pesat
+          </Label>
+        </g>
         {/* rumah pembangkit: turbin + generator */}
         <rect x={925} y={672} width={175} height={128} rx={10} fill="#16224a" stroke={C.muted} strokeWidth={3} />
         <g transform={`translate(${TURB.x} ${TURB.y}) rotate(${rot})`}>
@@ -177,23 +177,33 @@ export const Hydro: React.FC = () => {
 
         <EnergyBars
           x={1390}
-          y={820}
-          height={290}
+          y={770}
+          height={280}
           barW={60}
           gap={26}
           max={1000}
-          unit="J per kg air"
-          title="ENERGI 1 kg AIR"
+          unit=""
+          title="ENERGI 1 kg AIR (J)"
           opacity={bars}
           bars={[
             {key: 'Ug', label: ELabel.Ug, value: Ug, color: 'pot'},
             {key: 'K', label: ELabel.K, value: K, color: 'kin'},
-            {key: 'El', label: 'E', value: Elec, color: 'gold'},
+            {
+              key: 'El',
+              label: (
+                <>
+                  E<TSub>el</TSub>
+                </>
+              ),
+              value: Elec,
+              color: 'gold',
+            },
             {key: 'Th', label: ELabel.Th, value: Eth, color: 'heat'},
           ]}
         />
-        <Label x={1390 + 2 * 86 + 30} y={872} size={18} color={C.gold} opacity={bars}>
-          listrik
+        <Label x={1384} y={836} size={18} color={C.muted} anchor="start" opacity={bars}>
+          E
+          <TSub>el</TSub> = energi listrik
         </Label>
       </Stage>
       <Formula x={1600} y={300} p={cardA} accent={C.pot} size={66} caption="daya = energi tiap detik">

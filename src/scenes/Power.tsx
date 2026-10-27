@@ -195,15 +195,12 @@ export const Power: React.FC = () => {
             <Label x={sx0} y={sy - wIn / 2 - 30} size={28} anchor="start" color={C.work} weight={600}>
               daya masuk 2000 W
             </Label>
-            <Label x={sx0 + 14} y={sy} size={24} anchor="start" color={C.bg} weight={700}>
-              listrik
-            </Label>
           </g>
           <g opacity={sankSplit}>
             <path d={band(sx1, sy - wIn / 2 + wUse / 2, 1740, sy - wIn / 2 + wUse / 2 - 20, wUse)} fill={C.pot} opacity={0.9} />
             <path d={band(sx1, sy + wIn / 2 - wHeat / 2, 1560, 790, wHeat)} fill={C.heat} opacity={0.9} />
-            <Label x={1740} y={sy + wUse / 2 + 26} size={26} anchor="end" color={C.pot} weight={600}>
-              berguna 1600 W → energi potensial beban
+            <Label x={1740} y={sy - wIn / 2 - 36} size={26} anchor="end" color={C.pot} weight={600}>
+              berguna 1600 W → U<tspan baselineShift="sub" fontSize="0.65em">g</tspan> beban
             </Label>
             <Label x={1580} y={790} size={28} anchor="start" color={C.heat} weight={600}>
               400 W

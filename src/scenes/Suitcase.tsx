@@ -99,20 +99,20 @@ export const Suitcase: React.FC = () => {
           </Label>
         </g>
         <g opacity={gn}>
-          <Arrow x1={x + 30} y1={FLOOR - 60} x2={x + 30} y2={FLOOR + 70} color="muted" width={5} />
-          <Label x={x + 54} y={FLOOR + 84} size={26} font="serif" italic color={C.muted} anchor="start">
+          <Arrow x1={x + 30} y1={FLOOR - 60} x2={x + 30} y2={FLOOR + 22} color="muted" width={5} />
+          <Label x={x + 96} y={FLOOR - 24} size={26} font="serif" italic color={C.muted} anchor="start">
             mg
           </Label>
           <Arrow x1={x - 30} y1={FLOOR - 60} x2={x - 30} y2={FLOOR - 190} color="muted" width={5} />
           <Label x={x - 54} y={FLOOR - 190} size={26} font="serif" italic color={C.muted} anchor="end">
             N
           </Label>
-          <Label x={x} y={FLOOR - 230} size={24} color={C.muted}>
+          <Label x={x - 70} y={FLOOR - 230} size={24} color={C.muted} anchor="end">
             ⊥ gerak → W = 0
           </Label>
         </g>
-        <Arrow x1={X0 - 60} y1={260} x2={X0 + 60} y2={260} color="cyan" width={4} opacity={ramp(t, cue(0) + 2, cue(0) + 3)} />
-        <Label x={X0 + 76} y={260} size={24} color={C.cyan} anchor="start" opacity={ramp(t, cue(0) + 2, cue(0) + 3)}>
+        <Arrow x1={X0 - 60} y1={FLOOR + 110} x2={X0 + 60} y2={FLOOR + 110} color="cyan" width={4} opacity={ramp(t, cue(0) + 2, cue(0) + 3)} />
+        <Label x={X0 + 76} y={FLOOR + 110} size={24} color={C.cyan} anchor="start" opacity={ramp(t, cue(0) + 2, cue(0) + 3)}>
           arah gerak
         </Label>
       </Stage>
