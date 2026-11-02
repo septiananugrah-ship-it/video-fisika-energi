@@ -10,7 +10,8 @@ const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
 /** 0→1 antara detik a dan b. */
 export const ramp = (t: number, a: number, b: number, easing: (x: number) => number = EASE) =>
-  interpolate(t, [a, b], [0, 1], {...clamp, easing});
+  // Pengaman: bila jeda narasi nyata membuat b ≤ a, pakai durasi minimum alih-alih error.
+  interpolate(t, [a, Math.max(b, a + 0.05)], [0, 1], {...clamp, easing});
 
 /** Muncul pada a..a+inDur lalu hilang pada b..b+outDur. */
 export const win = (t: number, a: number, b: number, inDur = 0.6, outDur = 0.6) =>
