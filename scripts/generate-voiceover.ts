@@ -81,7 +81,10 @@ for (const scene of SCRIPT) {
           ...(modelId.includes('multilingual_v2') ? {} : {language_code: 'id'}),
           previous_text: prev,
           next_text: next,
-          voice_settings: {stability: 0.55, similarity_boost: 0.75, style: 0, speed: 0.95},
+          // turbo: sedikit lebih lambat & stabil agar tidak terdengar terburu-buru (model latensi rendah)
+          voice_settings: modelId.includes('turbo')
+            ? {stability: 0.62, similarity_boost: 0.75, style: 0, speed: 0.9}
+            : {stability: 0.55, similarity_boost: 0.75, style: 0, speed: 0.95},
         }),
       });
       if (!res.ok) {

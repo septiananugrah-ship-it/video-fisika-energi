@@ -15,7 +15,7 @@ on:
         description: 'ElevenLabs: model (eleven_v4_turbo ≈ separuh kredit)'
         type: choice
         options: ['eleven_v4', 'eleven_v4_turbo', 'eleven_multilingual_v2']
-        default: 'eleven_v4'
+        default: 'eleven_v4_turbo'
       suara_edge:
         description: 'Edge: suara (id-ID-ArdiNeural = laki-laki, id-ID-GadisNeural = perempuan)'
         type: choice
