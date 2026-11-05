@@ -84,7 +84,7 @@ for (const s of TIMELINE.scenes) {
     lastPart = s.part;
   }
   if (!s.part && lastPart && s.chapter) chapters.push('');
-  chapters.push(`${formatTime(s.start)} ${s.chapter ? `Bab ${s.chapter} · ` : ''}${s.id === 'hook' ? 'Pembuka: oven microwave & teleskop radio' : s.title}`);
+  chapters.push(`${formatTime(s.start)} ${s.chapter ? `Bab ${s.chapter} · ` : ''}${s.id === 'hook' ? 'Pembuka: bola boling yang tak menabrak hidung' : s.title}`);
 }
 writeFileSync('naskah/BAB_YOUTUBE.txt', chapters.join('\n') + '\n');
 
